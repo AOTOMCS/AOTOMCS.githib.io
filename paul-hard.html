@@ -12,12 +12,7 @@
         </main>
     </body>
     <script type="module" src="./src/virtual-joystick.js">
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        if (isMobile) {
-            print("test")
-        }
-        else {
-            const container = document.getElementById('zone')
+        const container = document.getElementById('zone')
             const joystick = new VirtualJoystick(container, {
             width: 150,
             height: 150,
@@ -29,6 +24,5 @@
             console.log(delta);
             },
         });
-        }
     </script>
 </html>
