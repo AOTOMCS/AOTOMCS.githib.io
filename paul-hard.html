@@ -13,16 +13,16 @@
     </body>
     <script type="module" src="./src/virtual-joystick.js">
         const container = document.getElementById('zone')
-            const joystick = new VirtualJoystick(container, {
-            width: 150,
-            height: 150,
-            color: 'gray',
-            handleColor: 'black',
-            handleRadius: 38,
-            onChange: function(delta) {
-            print("test")
-            console.log(delta);
-            },
+        const joystick = new VirtualJoystick(container, {
+        width: 150,
+        height: 150,
+        color: 'gray',
+        handleColor: 'black',
+        handleRadius: 38,
+        onChange: function(delta) {
+        print("test")
+        console.log(delta);
+        },
         });
     </script>
 </html>
