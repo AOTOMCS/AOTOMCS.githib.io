@@ -20,6 +20,9 @@ if (isMobile) {
         if (joystick.delta.x > 100) {
             document.querySelector("#test").style.display = "none"
         }
+        else {
+            document.querySelector("#test").style.display = "block"
+        }
     console.log(delta);
     },
     });
