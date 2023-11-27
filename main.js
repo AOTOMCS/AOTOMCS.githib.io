@@ -18,9 +18,7 @@ if (isMobile) {
     handleRadius: 60,
     onChange: function(delta) {
         pos = joystick.delta.x.toString()
-        pos2 = joystick.delta.y.toString()
-        pos.concat(",", pos2)
-        document.querySelector('p').innerhtml = pos
+        document.querySelector('p').innerhtml = "test2"
     console.log(delta);
     },
     });
