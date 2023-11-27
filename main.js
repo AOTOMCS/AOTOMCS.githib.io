@@ -13,17 +13,10 @@ else {
     joystickContainer.style.bottom = '20px';
     joystickContainer.style.left = '20px';
     stickContainer.appendChild(joystickContainer);
-    const joystick = new VirtualJoystick(joystickContainer, {
-    width: 100,
-    height: 100,
-    color: 'gray',
-    handleColor: 'black',
-    handleRadius: 20,
-    onChange: function(delta) {
-        pos = joystick.delta.x.toString()
-        document.querySelector('p').innerhtml = "test2"
-    console.log(delta);
-    },
-    });
+    const joystick = new VirtualJoystick(joystickContainer);
+    const joystickMagnitude = Math.sqrt(joystick.delta.x ** 2 + joystick.delta.y ** 2);
+    if (joystickMagnitude > 0) {
+        document.getElementById("test").innerHTML = String(joystick.delta.x)
+    }
 }
 
