@@ -17,12 +17,7 @@ if (isMobile) {
     handleColor: 'black',
     handleRadius: 60,
     onChange: function(delta) {
-        if (joystick.delta.x > 100) {
-            document.querySelector("#test").style.display = "none"
-        }
-        else {
-            document.querySelector("#test").style.display = "block"
-        }
+        document.querySelector('#test').innerhtml = joystick.delta.x 
     console.log(delta);
     },
     });
