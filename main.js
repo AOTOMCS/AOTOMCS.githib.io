@@ -17,7 +17,10 @@ if (isMobile) {
     handleColor: 'black',
     handleRadius: 60,
     onChange: function(delta) {
-        document.querySelector('#test').innerhtml = joystick.delta.x 
+        pos = joystick.delta.x.toString()
+        pos2 = joystick.delta.y.toString()
+        pos.concat(",", pos2)
+        document.querySelector('div').innerhtml = pos
     console.log(delta);
     },
     });
