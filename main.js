@@ -5,6 +5,9 @@ document.body.appendChild(stickContainer);
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
+    document.querySelector('main').innerHTML = "mobile";
+}
+else {
     const joystickContainer = document.createElement('div');
     joystickContainer.style.position = 'absolute';
     joystickContainer.style.bottom = '20px';
@@ -22,8 +25,5 @@ if (isMobile) {
     console.log(delta);
     },
     });
-}
-else {
-    document.querySelector('main').innerHTML = "PC";
 }
 
