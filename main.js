@@ -3,7 +3,7 @@ import VirtualJoystick from "./src/virtual-joystick.js";
 const stickContainer = document.querySelector('main');
 document.body.appendChild(stickContainer);
 
-function Start() {
+export function Start() {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
     document.querySelector('main').innerHTML = "mobile";
@@ -17,12 +17,14 @@ function Start() {
     const joystick = new VirtualJoystick(joystickContainer);
     }
 }
-function getRandomInt(min, max) {
+
+export function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
-function show_image(src, width, height, alt) {
+
+export function show_image(src, width, height, alt) {
     var img = document.createElement("img");
     img.src = src;
     img.width = width;
@@ -33,4 +35,3 @@ function show_image(src, width, height, alt) {
     // but you can adapt to make it append to the element you want.
     document.body.appendChild(img);
 }
-
