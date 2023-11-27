@@ -20,7 +20,7 @@ if (isMobile) {
         pos = joystick.delta.x.toString()
         pos2 = joystick.delta.y.toString()
         pos.concat(",", pos2)
-        document.querySelector('div').innerhtml = pos
+        document.querySelector('p').innerhtml = pos
     console.log(delta);
     },
     });
