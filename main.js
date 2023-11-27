@@ -10,7 +10,7 @@ document.querySelector('main').innerHTML = "mobile";
 else {
 const joystickContainer = document.createElement('div');
 joystickContainer.style.position = 'absolute';
-joystickContainer.style.bottom = '20px';
+joystickContainer.style.top = '200px';
 joystickContainer.style.left = '20px';
 stickContainer.appendChild(joystickContainer);
 const joystick = new VirtualJoystick(joystickContainer);
