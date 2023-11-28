@@ -40,11 +40,19 @@
                 img.height = 330;
                 img.alt = "test";
                 document.body.appendChild(img);
-                sleep(2000).then(() => { if (joystick.delta.x != 0) { 
-                  returnvalue = document.createElement("p")
-                  returnvalue.innerHML = "SUCCESS"
-                  document.body.appendChild("returnvalue")
-                } });
+                sleep(2000).then(() => { 
+                  if (joystick.delta.x != 0) { 
+                    returnvalue = document.createElement("p")
+                    returnvalue.innerHML = "SUCCESS"
+                    document.body.appendChild("returnvalue")
+                  }
+                  else {
+                    returnvalue = document.createElement("p")
+                    returnvalue.innerHML = "FAIL"
+                    document.body.appendChild("returnvalue")
+                  }
+                });
+                document.querySelector("img").style.display = "none"
               }
               else if (random == 2) {
                 var img = document.createElement("img");
@@ -53,11 +61,19 @@
                 img.height = 330;
                 img.alt = "test";
                 document.body.appendChild(img);
-                sleep(2000).then(() => { if (joystick.delta.x != 0) { 
-                  returnvalue = document.createElement("p")
-                  returnvalue.innerHML = "SUCCESS"
-                  document.body.appendChild("returnvalue")
-                } });
+                sleep(2000).then(() => { 
+                  if (joystick.delta.x != 0) { 
+                    returnvalue = document.createElement("p")
+                    returnvalue.innerHML = "SUCCESS"
+                    document.body.appendChild("returnvalue")
+                  }
+                  else {
+                    returnvalue = document.createElement("p")
+                    returnvalue.innerHML = "FAIL"
+                    document.body.appendChild("returnvalue")
+                  }
+                });
+                document.querySelector("img").style.display = "none"
               }
               else if (random == 3) {
                 var img = document.createElement("img");
@@ -66,11 +82,19 @@
                 img.height = 330;
                 img.alt = "test";
                 document.body.appendChild(img);
-                sleep(2000).then(() => { if (joystick.delta.x != 0) { 
-                  returnvalue = document.createElement("p")
-                  returnvalue.innerHML = "SUCCESS"
-                  document.body.appendChild("returnvalue")
-                } });
+                sleep(2000).then(() => { 
+                  if (joystick.delta.x != 0) { 
+                    returnvalue = document.createElement("p")
+                    returnvalue.innerHML = "SUCCESS"
+                    document.body.appendChild("returnvalue")
+                  }
+                  else {
+                    returnvalue = document.createElement("p")
+                    returnvalue.innerHML = "FAIL"
+                    document.body.appendChild("returnvalue")
+                  }
+                });
+                document.querySelector("img").style.display = "none"
               }
             }
           }
