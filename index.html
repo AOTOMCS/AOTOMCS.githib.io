@@ -34,14 +34,16 @@
 
     </footer>
     <script>
-        // if select value = default, dont redirect
         document.querySelector("#submit").onclick = function() {
             temp = document.querySelector("#Character");
             character = temp.value;
             temp = document.querySelector("#Difficulty");
             difficulty = temp.value;
             Page = character + '-' + difficulty + '.html';
-            window.location.href = Page;
+            // If select value does not include "Select", as in the default value "Select your character", redirect
+            if (Page.includes("Select") == false) {
+                window.location.href = Page;
+            }
         }
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {

@@ -25,33 +25,53 @@
         <script>
           document.getElementById("start").onclick = function() {
             document.getElementById("start").style.display = "none"
-            // 2
-            min = Math.ceil(1);
-            max = Math.floor(4);
-            random = Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-            if (random = 1) {
-              var img = document.createElement("img");
-              img.src = "Hike.jpeg";
-              img.width = 302;
-              img.height = 330;
-              img.alt = "test";
-              document.body.appendChild(img);
+            // Function that waits for given amount of milliseconds
+            function sleep(ms) {
+              return new Promise(resolve => setTimeout(resolve, ms));
             }
-            else if (random = 2) {
-              var img = document.createElement("img");
-              img.src = "logo.jpg";
-              img.width = 302;
-              img.height = 330;
-              img.alt = "test";
-              document.body.appendChild(img);
-            }
-            else if (random = 3) {
-              var img = document.createElement("img");
-              img.src = "Hike.jpeg";
-              img.width = 302;
-              img.height = 330;
-              img.alt = "test";
-              document.body.appendChild(img);
+            for (let i = 0; i < 5; i++) {
+              min = Math.ceil(1);
+              max = Math.floor(4);
+              random = Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+              if (random == 1) {
+                var img = document.createElement("img");
+                img.src = "Hike.jpeg";
+                img.width = 302;
+                img.height = 330;
+                img.alt = "test";
+                document.body.appendChild(img);
+                sleep(2000).then(() => { if (joystick.delta.x != 0) { 
+                  returnvalue = document.createElement("p")
+                  returnvalue.innerHML = "SUCCESS"
+                  document.body.appendChild("returnvalue")
+                } });
+              }
+              else if (random == 2) {
+                var img = document.createElement("img");
+                img.src = "logo.jpg";
+                img.width = 302;
+                img.height = 330;
+                img.alt = "test";
+                document.body.appendChild(img);
+                sleep(2000).then(() => { if (joystick.delta.x != 0) { 
+                  returnvalue = document.createElement("p")
+                  returnvalue.innerHML = "SUCCESS"
+                  document.body.appendChild("returnvalue")
+                } });
+              }
+              else if (random == 3) {
+                var img = document.createElement("img");
+                img.src = "Hike.jpeg";
+                img.width = 302;
+                img.height = 330;
+                img.alt = "test";
+                document.body.appendChild(img);
+                sleep(2000).then(() => { if (joystick.delta.x != 0) { 
+                  returnvalue = document.createElement("p")
+                  returnvalue.innerHML = "SUCCESS"
+                  document.body.appendChild("returnvalue")
+                } });
+              }
             }
           }
         </script>
