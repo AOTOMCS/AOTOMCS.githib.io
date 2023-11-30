@@ -28,10 +28,10 @@
             const joystickContainer = document.createElement('div');
             joystickContainer.id = "joyDiv"
             joystickContainer.style.position = 'absolute';
-            joystickContainer.style.top = '350px';
+            joystickContainer.style.top = '450px';
             joystickContainer.style.left = '20px';
-            joystickContainer.style.width = '400px';
-            joystickContainer.style.height = '400px';
+            joystickContainer.style.width = '300px';
+            joystickContainer.style.height = '300px';
             stickContainer.appendChild(joystickContainer);
             var joy = new JoyStick('joyDiv');
             }
@@ -54,8 +54,9 @@
                   img.id = "img";
                   document.body.appendChild(img);
                   await sleep(5000);
-                  checkdir = (joy.GetDir()).localecompare("SW")
-                  if (checkdir = 0) { 
+                  direction = joy.GetDir()
+                  checkdir = direction.localecompare("SW")
+                  if (checkdir == 0) { 
                       returnvalue = document.createElement("p")
                       returnvalue.innerHML = "SUCCESS"
                       document.body.appendChild("returnvalue")
@@ -78,7 +79,8 @@
                   document.body.appendChild(img);
                   await sleep(5000);
                   direction = joy.GetDir()
-                  if (direction.localecompare("SW")) { 
+                  checkdir = direction.localecompare("SW")
+                  if (checkdir == 0) { 
                     returnvalue = document.createElement("p")
                     returnvalue.innerHML = "SUCCESS"
                     document.body.appendChild("returnvalue")
@@ -101,6 +103,7 @@
                   document.body.appendChild(img);
                   await sleep(5000);
                   direction = joy.GetDir()
+                  checkdir = direction.localecompare("SW")
                   if (direction.localecompare("SW")) { 
                     returnvalue = document.createElement("p")
                     returnvalue.innerHML = "SUCCESS"
