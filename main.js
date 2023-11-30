@@ -1,4 +1,4 @@
-import VirtualJoystick from "./src/virtual-joystick.js";
+
 
 const stickContainer = document.querySelector('main');
 document.body.appendChild(stickContainer);
@@ -9,10 +9,13 @@ document.querySelector('main').innerHTML = "mobile";
 }
 else {
 const joystickContainer = document.createElement('div');
+joystickContainer.id = "joyDiv"
 joystickContainer.style.position = 'absolute';
-joystickContainer.style.top = '200px';
+joystickContainer.style.top = '1500px';
 joystickContainer.style.left = '20px';
+joystickContainer.style.width = '400px';
+joystickContainer.style.height = '400px';
 stickContainer.appendChild(joystickContainer);
-const joystick = new VirtualJoystick(joystickContainer);
+var joy = new JoyStick('joyDiv');
 }
 
