@@ -134,12 +134,20 @@
                   if (isMobile) {
                     direction = String(joy.GetDir())
                     checkdir = direction.localeCompare("SW")
-                  }
-                  if (checkdir == 0 || downpressed == true) { 
+                    if (checkdir == 0) { 
                     document.getElementById("status").innerHTML = "SUCCESS"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "FAILURE"
+                    }
                   }
                   else {
-                    document.getElementById("status").innerHTML = "FAILURE"
+                    if (downpressed == true) { 
+                    document.getElementById("status").innerHTML = "SUCCESS"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "FAILURE"
+                    }
                   }
                 const element = document.getElementById('img')
                 element.remove()
@@ -156,12 +164,20 @@
                   if (isMobile) {
                     direction = String(joy.GetDir())
                     checkdir = direction.localeCompare("SW")
-                  }
-                  if (checkdir == 0 || downpressed == true) { 
+                    if (checkdir == 0) { 
                     document.getElementById("status").innerHTML = "SUCCESS"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "FAILURE"
+                    }
                   }
                   else {
-                    document.getElementById("status").innerHTML = "FAILURE"
+                    if (downpressed == true) { 
+                    document.getElementById("status").innerHTML = "SUCCESS"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "FAILURE"
+                    }
                   }
                 const element = document.getElementById('img')
                 element.remove()
@@ -178,12 +194,20 @@
                   if (isMobile) {
                     direction = String(joy.GetDir())
                     checkdir = direction.localeCompare("SW")
-                  }
-                  if (checkdir == 0 || downpressed == true) { 
+                    if (checkdir == 0) { 
                     document.getElementById("status").innerHTML = "SUCCESS"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "FAILURE"
+                    }
                   }
                   else {
-                    document.getElementById("status").innerHTML = "FAILURE"
+                    if (downpressed == true) { 
+                    document.getElementById("status").innerHTML = "SUCCESS"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "FAILURE"
+                    }
                   }
                 const element = document.getElementById('img')
                 element.remove()
