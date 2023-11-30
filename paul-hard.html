@@ -16,6 +16,7 @@
     <body>
         <button type="button" id="start"> Start </button>
         <main></main>
+        <div id="status"></div>
         <script src="src/joy.js"></script>
         <script>
             const stickContainer = document.querySelector('main');
@@ -57,14 +58,10 @@
                   direction = String(joy.GetDir())
                   checkdir = direction.localeCompare("SW")
                   if (checkdir == 0) { 
-                      returnvalue = document.createElement("p")
-                      returnvalue.innerHML = "SUCCESS"
-                      document.body.appendChild("returnvalue")
+                    document.getElementById("status").innerHTML = "SUCCESS"
                   }
                   else {
-                      returnvalue = document.createElement("p")
-                      returnvalue.innerHML = "FAIL"
-                      document.body.appendChild("returnvalue")
+                    document.getElementById("status").innerHTML = "FAILURE"
                   }
                 const element = document.getElementById('img')
                 element.remove()
@@ -81,14 +78,10 @@
                   direction = String(joy.GetDir())
                   checkdir = direction.localeCompare("SW")
                   if (checkdir == 0) { 
-                    returnvalue = document.createElement("p")
-                    returnvalue.innerHML = "SUCCESS"
-                    document.body.appendChild("returnvalue")
+                    document.getElementById("status").innerHTML = "SUCCESS"
                   }
                   else {
-                    returnvalue = document.createElement("p")
-                    returnvalue.innerHML = "FAIL"
-                    document.body.appendChild("returnvalue")
+                    document.getElementById("status").innerHTML = "FAILURE"
                   }
                 const element = document.getElementById('img')
                 element.remove()
@@ -104,15 +97,11 @@
                   await sleep(5000);
                   direction = String(joy.GetDir())
                   checkdir = direction.localeCompare("SW")
-                  if (direction.localecompare("SW")) { 
-                    returnvalue = document.createElement("p")
-                    returnvalue.innerHML = "SUCCESS"
-                    document.body.appendChild("returnvalue")
+                  if (checkdir == 0) { 
+                    document.getElementById("status").innerHTML = "SUCCESS"
                   }
                   else {
-                    returnvalue = document.createElement("p")
-                    returnvalue.innerHML = "FAIL"
-                    document.body.appendChild("returnvalue")
+                    document.getElementById("status").innerHTML = "FAILURE"
                   }
                 const element = document.getElementById('img')
                 element.remove()
