@@ -11,7 +11,7 @@ else {
 const joystickContainer = document.createElement('div');
 joystickContainer.id = "joyDiv"
 joystickContainer.style.position = 'absolute';
-joystickContainer.style.top = '1500px';
+joystickContainer.style.top = '200px';
 joystickContainer.style.left = '20px';
 joystickContainer.style.width = '400px';
 joystickContainer.style.height = '400px';

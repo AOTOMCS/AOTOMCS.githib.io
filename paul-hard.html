@@ -37,7 +37,7 @@
                   img.alt = "test";
                   img.id = "img";
                   document.body.appendChild(img);
-                  await sleep(2000);
+                  await sleep(5000);
                   direction = joy.GetDir()
                   if (direction.localecompare("SW")) { 
                       returnvalue = document.createElement("p")
@@ -60,8 +60,9 @@
                   img.alt = "test";
                   img.id = "img";
                   document.body.appendChild(img);
-                  await sleep(2000);
-                  if (joystick.delta.x != 0) { 
+                  await sleep(5000);
+                  direction = joy.GetDir()
+                  if (direction.localecompare("SW")) { 
                     returnvalue = document.createElement("p")
                     returnvalue.innerHML = "SUCCESS"
                     document.body.appendChild("returnvalue")
@@ -82,8 +83,9 @@
                   img.alt = "test";
                   img.id = "img";
                   document.body.appendChild(img);
-                  await sleep(2000);
-                  if (joystick.delta.x != 0) { 
+                  await sleep(5000);
+                  direction = joy.GetDir()
+                  if (direction.localecompare("SW")) { 
                     returnvalue = document.createElement("p")
                     returnvalue.innerHML = "SUCCESS"
                     document.body.appendChild("returnvalue")
