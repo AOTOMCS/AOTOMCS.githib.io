@@ -418,4 +418,69 @@ var JoyStick = (function(container, parameters, callback)
     {
         return getCardinalDirection();
     };
+
+    const stickContainer = document.querySelector('main');
+    document.body.appendChild(stickContainer);
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      const joystickContainer = document.createElement('div');
+      joystickContainer.id = "joyDiv"
+      joystickContainer.style.position = 'absolute';
+      joystickContainer.style.top = '450px';
+      joystickContainer.style.left = '20px';
+      joystickContainer.style.width = '300px';
+      joystickContainer.style.height = '300px';
+      stickContainer.appendChild(joystickContainer);
+      var joy = new JoyStick('joyDiv');
+    }
+    else {
+      left = document.getElementById("left")
+      up = document.getElementById("up")
+      right = document.getElementById("right")
+      down = document.getElementById("down")
+      document.addEventListener("keydown", function(event) {
+        if (event.key == "ArrowLeft"){
+            leftpressed = true;
+            left.style.color = "white";
+            left.style.backgroundColor = "black"
+        } else if (event.key == "ArrowUp"){
+            uppressed = true;
+            up.style.color = "white";
+            up.style.backgroundColor = "black"
+        } else if (event.key == "ArrowRight"){
+            rightpressed = true;
+            right.style.color = "white";
+            right.style.backgroundColor = "black"
+        } else if (event.key == "ArrowDown"){
+            downpressed = true;
+            down.style.color = "white";
+            down.style.backgroundColor = "black"
+        }
+      });
+      document.addEventListener("keyup", function(event) {
+        if (event.key == "ArrowLeft"){
+            leftpressed = false;
+            left.style.color = "black";
+            left.style.backgroundColor = "rgb(135, 142, 148)"
+        } else if (event.key == "ArrowUp"){
+            uppressed = false;
+            up.style.color = "black";
+            up.style.backgroundColor = "rgb(135, 142, 148)"
+        } else if (event.key == "ArrowRight"){
+            rightpressed = false;
+            right.style.color = "black";
+            right.style.backgroundColor = "rgb(135, 142, 148)"
+        } else if (event.key == "ArrowDown"){
+            downpressed = false;
+            down.style.color = "black";
+            down.style.backgroundColor = "rgb(135, 142, 148)"
+        }
+      });
+    }
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+    }
 });
