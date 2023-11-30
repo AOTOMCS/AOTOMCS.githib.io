@@ -55,8 +55,8 @@
                   img.id = "img";
                   document.body.appendChild(img);
                   await sleep(5000);
-                  direction = joy.GetDir()
-                  if (direction.localecompare("SW")) { 
+                  checkdir = (joy.GetDir()).localecompare("SW")
+                  if (checkdir = 0) { 
                       returnvalue = document.createElement("p")
                       returnvalue.innerHML = "SUCCESS"
                       document.body.appendChild("returnvalue")
