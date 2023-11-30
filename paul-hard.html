@@ -54,8 +54,8 @@
                   img.id = "img";
                   document.body.appendChild(img);
                   await sleep(5000);
-                  direction = joy.GetDir()
-                  checkdir = direction.localecompare("SW")
+                  direction = String(joy.GetDir())
+                  checkdir = direction.localeCompare("SW")
                   if (checkdir == 0) { 
                       returnvalue = document.createElement("p")
                       returnvalue.innerHML = "SUCCESS"
@@ -78,8 +78,8 @@
                   img.id = "img";
                   document.body.appendChild(img);
                   await sleep(5000);
-                  direction = joy.GetDir()
-                  checkdir = direction.localecompare("SW")
+                  direction = String(joy.GetDir())
+                  checkdir = direction.localeCompare("SW")
                   if (checkdir == 0) { 
                     returnvalue = document.createElement("p")
                     returnvalue.innerHML = "SUCCESS"
@@ -102,8 +102,8 @@
                   img.id = "img";
                   document.body.appendChild(img);
                   await sleep(5000);
-                  direction = joy.GetDir()
-                  checkdir = direction.localecompare("SW")
+                  direction = String(joy.GetDir())
+                  checkdir = direction.localeCompare("SW")
                   if (direction.localecompare("SW")) { 
                     returnvalue = document.createElement("p")
                     returnvalue.innerHML = "SUCCESS"
