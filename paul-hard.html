@@ -40,31 +40,39 @@
       top: 860px;
       left: 228px;
     }
+    #restart {
+      visibility: hidden;
+    }
     </style>
     <body>
         <button type="button" id="start"> Start </button>
         <main></main>
         <div id="status"></div>
+        <button type="button" id="restart" onclick="Start()"> Try Again? </button>
         <div class="arrows" id="left">←</div>
         <div class="arrows" id="down">↓</div>
         <div class="arrows" id="up">↑</div>
         <div class="arrows" id="right">→</div>
         <script src="src/joy.js"></script>
         <script>
+            leftpressed = false
+            uppressed = false
+            rightpressed = false
+            downpressed = false
             const Container = document.querySelector('main');
             document.body.appendChild(Container);
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             // if isMobile, create joystick
             if (isMobile) {
-              const joystickContainer = document.createElement('div');
+              const joystickContainer = document.createElement('div')
               joystickContainer.id = "joyDiv"
-              joystickContainer.style.position = 'absolute';
-              joystickContainer.style.top = '450px';
-              joystickContainer.style.left = '20px';
-              joystickContainer.style.width = '300px';
-              joystickContainer.style.height = '300px';
-              Container.appendChild(joystickContainer);
-              var joy = new JoyStick('joyDiv');
+              joystickContainer.style.position = 'absolute'
+              joystickContainer.style.top = '450px'
+              joystickContainer.style.left = '20px'
+              joystickContainer.style.width = '300px'
+              joystickContainer.style.height = '300px'
+              Container.appendChild(joystickContainer)
+              var joy = new JoyStick('joyDiv')
             }
             // else, show arrow key graphics and create keydown and keyup listeners that set pressed values to true while pressed, and false upon release
             else {
@@ -74,20 +82,20 @@
               }
               document.addEventListener("keydown", function(event) {
                 if (event.key == "ArrowLeft"){
-                    leftpressed = true;
-                    left.style.color = "white";
+                    leftpressed = true
+                    left.style.color = "white"
                     left.style.backgroundColor = "black"
                 } else if (event.key == "ArrowUp"){
-                    uppressed = true;
-                    up.style.color = "white";
+                    uppressed = true
+                    up.style.color = "white"
                     up.style.backgroundColor = "black"
                 } else if (event.key == "ArrowRight"){
-                    rightpressed = true;
-                    right.style.color = "white";
+                    rightpressed = true
+                    right.style.color = "white"
                     right.style.backgroundColor = "black"
                 } else if (event.key == "ArrowDown"){
                     downpressed = true;
-                    down.style.color = "white";
+                    down.style.color = "white"
                     down.style.backgroundColor = "black"
                 }
               });
@@ -115,9 +123,15 @@
             function sleep(ms) {
               return new Promise(resolve => setTimeout(resolve, ms));
             }
-            document.getElementById("start").onclick = async function() {
+            async function Start() {
               document.getElementById("start").style.display = "none"
+              failed = false
               for (let i = 0; i < 5; i++) {
+                if (failed == true) {
+                  document.getElementById("status").innerHTML = "❌ You failed"
+                  document.getElementById("restart").style.visibility = "visible"
+                  break
+                }
                 // get random value
                 min = Math.ceil(1);
                 max = Math.floor(4);
@@ -135,10 +149,10 @@
                     direction = String(joy.GetDir())
                     checkdir = direction.localeCompare("SW")
                     if (checkdir == 0) { 
-                    document.getElementById("status").innerHTML = "SUCCESS"
+                    document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "FAILURE"
+                      failed = true
                     }
                   }
                   else {
