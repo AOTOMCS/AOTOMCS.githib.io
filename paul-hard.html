@@ -1,49 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: rgb(105, 105, 105);
-      user-select: none; /* Disable text selection */
-      overflow: hidden; /* Disable scroll */
-    }
-    main {
-      width: 100%;
-      height: 100%;
-    }
-    .arrows {
-      position: absolute;
-      font-size: 50px;
-      border-style: solid;
-      border-width: 2px;
-      width: 60px;
-      height: 60px;
-      text-align: center;
-      color: black;
-      background-color: rgb(135, 142, 148);
-      visibility: hidden;
-    }
-    #left {
-      top: 860px;
-      left: 92px;
-    }
-    #down {
-      top: 860px;
-      left: 160px;
-    }
-    #up {
-      top: 792px;
-      left: 160px;
-    }
-    #right {
-      top: 860px;
-      left: 228px;
-    }
-    #restart {
-      visibility: hidden;
-    }
-    </style>
+    <head>
+      <title>
+        Paul Hard
+      </title>
+      <link rel="stylesheet" href="mystyle.css">
+      <script src="src/joy.js"></script>
+    </head>
     <body>
         <button type="button" id="start" onclick="Start()"> Start </button>
         <main></main>
@@ -53,7 +16,6 @@
         <div class="arrows" id="down">↓</div>
         <div class="arrows" id="up">↑</div>
         <div class="arrows" id="right">→</div>
-        <script src="src/joy.js"></script>
         <script>
             leftpressed = false
             uppressed = false
@@ -126,6 +88,7 @@
             async function Start() {
               document.getElementById("start").style.visibility = "hidden"
               document.getElementById("restart").style.visibility = "hidden"
+              document.getElementById("status").innerHTML = ""
               failed = false
               for (let i = 0; i < 5; i++) {
                 if (failed == true) {
