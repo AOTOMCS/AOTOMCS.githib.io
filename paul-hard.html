@@ -45,7 +45,7 @@
     }
     </style>
     <body>
-        <button type="button" id="start"> Start </button>
+        <button type="button" id="start" onclick="Start()"> Start </button>
         <main></main>
         <div id="status"></div>
         <button type="button" id="restart" onclick="Start()"> Try Again? </button>
@@ -124,7 +124,8 @@
               return new Promise(resolve => setTimeout(resolve, ms));
             }
             async function Start() {
-              document.getElementById("start").style.display = "none"
+              document.getElementById("start").style.visibility = "hidden"
+              document.getElementById("restart").style.visibility = "hidden"
               failed = false
               for (let i = 0; i < 5; i++) {
                 if (failed == true) {
@@ -157,10 +158,10 @@
                   }
                   else {
                     if (downpressed == true) { 
-                    document.getElementById("status").innerHTML = "SUCCESS"
+                      document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "FAILURE"
+                      failed = true
                     }
                   }
                 const element = document.getElementById('img')
@@ -179,18 +180,18 @@
                     direction = String(joy.GetDir())
                     checkdir = direction.localeCompare("SW")
                     if (checkdir == 0) { 
-                    document.getElementById("status").innerHTML = "SUCCESS"
+                      document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "FAILURE"
+                      failed = true
                     }
                   }
                   else {
                     if (downpressed == true) { 
-                    document.getElementById("status").innerHTML = "SUCCESS"
+                      document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "FAILURE"
+                      failed = true
                     }
                   }
                 const element = document.getElementById('img')
@@ -209,18 +210,18 @@
                     direction = String(joy.GetDir())
                     checkdir = direction.localeCompare("SW")
                     if (checkdir == 0) { 
-                    document.getElementById("status").innerHTML = "SUCCESS"
+                      document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "FAILURE"
+                      failed = true
                     }
                   }
                   else {
                     if (downpressed == true) { 
-                    document.getElementById("status").innerHTML = "SUCCESS"
+                      document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "FAILURE"
+                      failed = true
                     }
                   }
                 const element = document.getElementById('img')
