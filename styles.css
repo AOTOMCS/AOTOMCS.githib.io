@@ -1,6 +1,7 @@
-img {
+video {
     left: 500px;
     top: 500px;
+    visibility: hidden;
 }
 body {
     margin: 0;
