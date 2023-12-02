@@ -14,23 +14,23 @@
         <div id="status"></div>
         <div id="score"></div>
         <h2 id="tipsheader"> Tips </h2>
-        <video id="32"  width="320" height="240" autoplay>
+        <video id="32"  width="320" height="240">
           <source src="/Paul/32.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
-        <video id="b12" width="320" height="240" autoplay>
+        <video id="b12" width="320" height="240">
           <source src="/Paul/b12.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
-        <video id="df2" width="320" height="240" autoplay>
+        <video id="df2" width="320" height="240">
           <source src="/Paul/df2.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
-        <video id="fcdf2" width="320" height="240" autoplay>
-          <source src="/Paul/fcdf2.mp4" type="video/mp4">
+        <video id="fcdf12" width="320" height="240">
+          <source src="/Paul/fcdf12.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
-        <video id="ws32" width="320" height="240" autoplay>
+        <video id="ws32" width="320" height="240">
           <source src="/Paul/ws32.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
@@ -133,6 +133,7 @@
 
                 if (random == 1) {
                   document.getElementById("32").style.visbility = "visible"
+                  document.getElementById("32").play()
                   await sleep(750);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("E") == 0){ 
@@ -155,6 +156,7 @@
                 }
                 else if (random == 2) {
                   document.getElementById("b12").style.visbility = "visible"
+                  document.getElementById("b12").play()
                   await sleep(5000);
                   if (isMobile) {
                     direction = String(joy.GetDir())
@@ -179,6 +181,7 @@
 
                 else if (random == 3) {
                   document.getElementById("df2").style.visbility = "visible"
+                  document.getElementById("df2").play()
                   await sleep(5000);
                   if (isMobile) {
                     direction = String(joy.GetDir())
@@ -203,6 +206,7 @@
 
                 else if (random == 4) {
                   document.getElementById("fcdf12").style.visbility = "visible"
+                  document.getElementById("fcdf12").play()
                   await sleep(5000);
                   if (isMobile) {
                     direction = String(joy.GetDir())
@@ -227,6 +231,7 @@
 
                 else if (random == 5) {
                   document.getElementById("ws32").style.visbility = "visible"
+                  document.getElementById("ws32").play()
                   await sleep(5000);
                   if (isMobile) {
                     direction = String(joy.GetDir())
