@@ -47,10 +47,19 @@ main {
 }
 #status {
     position: absolute;
-    right: 0px;
+    right: 10px;
 }
 #score {
     position: absolute;
-    right: 0px;
+    right: 10px;
+    top: 50px;
     visibility: hidden;
+}
+#tips {
+    top: -10px;
+    margin: auto;
+    border: 2px solid black;
+    text-align: center;
+    width: 800px;
+    height: 100px;
 }
