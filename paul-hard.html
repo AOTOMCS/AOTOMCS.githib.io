@@ -10,9 +10,12 @@
     </head>
     <body>
         <button type="button" id="start" onclick="Start()"> Start </button>
+        <button type="button" id="restart" onclick="Start()"> Try Again? </button>
         <main></main>
-        <div id="status"></div>
-        <div id="score"></div>
+        <div id="tracker">
+          <div id="status"></div>
+          <div id="score"></div>
+        </div>
         <div id="tips">
           <h2> Tips </h2>
           <p>Paul's full crouch sweep, "Gunba", is only -12 on block, meaning that it should be low parried on reaction.</p>
@@ -37,7 +40,6 @@
           <source src="/Paul/ws32.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
-        <button type="button" id="restart" onclick="Start()"> Try Again? </button>
         <div class="arrows" id="left">←</div>
         <div class="arrows" id="down">↓</div>
         <div class="arrows" id="up">↑</div>
@@ -117,7 +119,7 @@
               document.getElementById("restart").style.visibility = "hidden"
               document.getElementById("status").innerHTML = ""
               document.getElementById("tips").style.visibility = "hidden"
-              document.getElementById("score").style.visibility = "visible"
+              document.getElementById("tracker").style.visibility = "visible"
               failed = false
               for (let i = 0; i < 10; i++) {
                 document.getElementById("score").innerHTML = i + 1
@@ -156,7 +158,7 @@
 
                 }
                 else if (random == 2) {
-                  document.getElementById("b12").style.visbility = "visible"
+                  document.getElementById("b12").style.visibility = "visible"
                   document.getElementById("b12").play()
                   await sleep(5000);
                   if (isMobile) {
@@ -177,11 +179,11 @@
                       failed = true
                     }
                   }
-                  document.getElementById("b12").style.visbility = "hidden"
+                  document.getElementById("b12").style.visibility = "hidden"
                 }
 
                 else if (random == 3) {
-                  document.getElementById("df2").style.visbility = "visible"
+                  document.getElementById("df2").style.visibility = "visible"
                   document.getElementById("df2").play()
                   await sleep(5000);
                   if (isMobile) {
@@ -202,7 +204,7 @@
                       failed = true
                     }
                   }
-                  document.getElementById("df2").style.visbility = "hidden"
+                  document.getElementById("df2").style.visibility = "hidden"
                 }
 
                 else if (random == 4) {
@@ -227,11 +229,11 @@
                       failed = true
                     }
                   }
-                  document.getElementById("fcdf12").style.visbility = "hidden"
+                  document.getElementById("fcdf12").style.visibility = "hidden"
                 }
 
                 else if (random == 5) {
-                  document.getElementById("ws32").style.visbility = "visible"
+                  document.getElementById("ws32").style.visibility = "visible"
                   document.getElementById("ws32").play()
                   await sleep(5000);
                   if (isMobile) {
@@ -252,7 +254,7 @@
                       failed = true
                     }
                   }
-                  document.getElementById("ws32").style.visbility = "hidden"
+                  document.getElementById("ws32").style.visibility = "hidden"
                 }
               }
               document.getElementById("status").innerHTML = "You win!"
