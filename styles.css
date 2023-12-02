@@ -46,5 +46,11 @@ main {
     visibility: hidden;
 }
 #status {
-    margin: auto;
+    position: absolute;
+    right: 0px;
+}
+#score {
+    position: absolute;
+    right: 0px;
+    visibility: hidden;
 }
