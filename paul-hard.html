@@ -137,9 +137,15 @@
                 if (random == 1) {
                   document.getElementById("32").style.visibility = "visible"
                   document.getElementById("32").play()
-                  await sleep(750);
                   if (isMobile) {
-                    if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("E") == 0){ 
+                    if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0){ 
+                      // pass
+                    }
+                    else {
+                      failed = true
+                    }
+                    await sleep(750);
+                    if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0){ 
                       document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
@@ -147,6 +153,13 @@
                     }
                   }
                   else {
+                    if (downpressed == false && rightpressed == false && uppressed == false) { 
+                      document.getElementById("status").innerHTML = "stand"
+                    }
+                    else {
+                      failed = true
+                    }
+                    await sleep(750);
                     if (downpressed == true) { 
                       document.getElementById("status").innerHTML = "✔️"
                     }
@@ -154,17 +167,15 @@
                       failed = true
                     }
                   }
+                  await sleep(750);
                   document.getElementById("32").style.visibility = "hidden"
-
                 }
                 else if (random == 2) {
                   document.getElementById("b12").style.visibility = "visible"
                   document.getElementById("b12").play()
-                  await sleep(5000);
+                  await sleep(875);
                   if (isMobile) {
-                    direction = String(joy.GetDir())
-                    checkdir = direction.localeCompare("SW")
-                    if (checkdir == 0) { 
+                    if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
                       document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
@@ -179,17 +190,16 @@
                       failed = true
                     }
                   }
+                  await sleep(1000);
                   document.getElementById("b12").style.visibility = "hidden"
                 }
 
                 else if (random == 3) {
                   document.getElementById("df2").style.visibility = "visible"
                   document.getElementById("df2").play()
-                  await sleep(5000);
+                  await sleep(450);
                   if (isMobile) {
-                    direction = String(joy.GetDir())
-                    checkdir = direction.localeCompare("SW")
-                    if (checkdir == 0) { 
+                    if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
                       document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
@@ -197,24 +207,23 @@
                     }
                   }
                   else {
-                    if (downpressed == true) { 
+                    if (downpressed == false && rightpressed == false && uppressed == false) { 
                       document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
                       failed = true
                     }
                   }
+                  await sleep(925);
                   document.getElementById("df2").style.visibility = "hidden"
                 }
 
                 else if (random == 4) {
                   document.getElementById("fcdf12").style.visibility = "visible"
                   document.getElementById("fcdf12").play()
-                  await sleep(5000);
+                  await sleep(730);
                   if (isMobile) {
-                    direction = String(joy.GetDir())
-                    checkdir = direction.localeCompare("SW")
-                    if (checkdir == 0) { 
+                    if (String(joy.GetDir()).localeCompare("SE") == 0) { 
                       document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
@@ -222,24 +231,29 @@
                     }
                   }
                   else {
-                    if (downpressed == true) { 
+                    if (downpressed == true && leftpressed == true) { 
                       document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
                       failed = true
                     }
                   }
+                  await sleep(1190)
                   document.getElementById("fcdf12").style.visibility = "hidden"
                 }
 
                 else if (random == 5) {
                   document.getElementById("ws32").style.visibility = "visible"
                   document.getElementById("ws32").play()
-                  await sleep(5000);
                   if (isMobile) {
-                    direction = String(joy.GetDir())
-                    checkdir = direction.localeCompare("SW")
-                    if (checkdir == 0) { 
+                    if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0){ 
+                      // pass
+                    }
+                    else {
+                      failed = true
+                    }
+                    await sleep(960);
+                    if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0){ 
                       document.getElementById("status").innerHTML = "✔️"
                     }
                     else {
@@ -247,6 +261,13 @@
                     }
                   }
                   else {
+                    if (downpressed == false && rightpressed == false && uppressed == false) { 
+                      document.getElementById("status").innerHTML = "stand"
+                    }
+                    else {
+                      failed = true
+                    }
+                    await sleep(960);
                     if (downpressed == true) { 
                       document.getElementById("status").innerHTML = "✔️"
                     }
@@ -254,9 +275,14 @@
                       failed = true
                     }
                   }
-                  document.getElementById("ws32").style.visibility = "hidden"
                 }
               }
+            }
+            if (failed == true) {
+              document.getElementById("status").innerHTML = "❌ You failed"
+              document.getElementById("restart").style.visibility = "visible"
+            }
+            else {
               document.getElementById("status").innerHTML = "You win!"
             }
         </script>
