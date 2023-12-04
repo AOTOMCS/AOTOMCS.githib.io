@@ -113,6 +113,7 @@
             function sleep(ms) {
               return new Promise(resolve => setTimeout(resolve, ms));
             }
+            failed = false
             // start game
             async function Start() {
               document.getElementById("start").style.visibility = "hidden"
@@ -274,6 +275,8 @@
                     else {
                       failed = true
                     }
+                    await sleep(880);
+                    document.getElementById("ws32").style.visibility = "hidden"
                   }
                 }
               }
