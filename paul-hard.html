@@ -145,7 +145,7 @@
                     else {
                       failed = true
                     }
-                    await sleep(750);
+                    await sleep(680);
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0){ 
                       document.getElementById("status").innerHTML = "✔️"
                     }
@@ -160,7 +160,7 @@
                     else {
                       failed = true
                     }
-                    await sleep(750);
+                    await sleep(680);
                     if (downpressed == true) { 
                       document.getElementById("status").innerHTML = "✔️"
                     }
@@ -168,13 +168,13 @@
                       failed = true
                     }
                   }
-                  await sleep(750);
+                  await sleep(880);
                   document.getElementById("32").style.visibility = "hidden"
                 }
                 else if (random == 2) {
                   document.getElementById("b12").style.visibility = "visible"
                   document.getElementById("b12").play()
-                  await sleep(875);
+                  await sleep(960);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
                       document.getElementById("status").innerHTML = "✔️"
@@ -191,7 +191,7 @@
                       failed = true
                     }
                   }
-                  await sleep(1000);
+                  await sleep(920);
                   document.getElementById("b12").style.visibility = "hidden"
                 }
 
@@ -215,14 +215,14 @@
                       failed = true
                     }
                   }
-                  await sleep(925);
+                  await sleep(800);
                   document.getElementById("df2").style.visibility = "hidden"
                 }
 
                 else if (random == 4) {
                   document.getElementById("fcdf12").style.visibility = "visible"
                   document.getElementById("fcdf12").play()
-                  await sleep(730);
+                  await sleep(840);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SE") == 0) { 
                       document.getElementById("status").innerHTML = "✔️"
@@ -239,7 +239,7 @@
                       failed = true
                     }
                   }
-                  await sleep(1190)
+                  await sleep(1040)
                   document.getElementById("fcdf12").style.visibility = "hidden"
                 }
 
@@ -253,7 +253,7 @@
                     else {
                       failed = true
                     }
-                    await sleep(960);
+                    await sleep(840);
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0){ 
                       document.getElementById("status").innerHTML = "✔️"
                     }
@@ -268,7 +268,7 @@
                     else {
                       failed = true
                     }
-                    await sleep(960);
+                    await sleep(840);
                     if (downpressed == true) { 
                       document.getElementById("status").innerHTML = "✔️"
                     }

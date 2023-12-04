@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>
+        Paul Hard
+      </title>
+      <link rel="stylesheet" href="styles.css">
+      <script src="src/joy.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </head>
+    <body>
+        <button type="button" id="start" onclick="Start()"> Start </button>
+        <button type="button" id="restart" onclick="Start()"> Try Again? </button>
+        <main></main>
+        <div id="tracker">
+          <div id="status"></div>
+          <div id="score"></div>
+        </div>
+        <div id="tips">
+          <h2> Tips </h2>
+          <p>Paul's full crouch sweep, "Gunba", is only -12 on block, meaning that it should be low parried on reaction.</p>
+        </div>
+        <video id="b12">
+          <source src="/Paul/b12.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <video id="df2">
+          <source src="/Paul/df2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <video id="fcdf12">
+          <source src="/Paul/fcdf12.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <div class="arrows" id="left">←</div>
+        <div class="arrows" id="down">↓</div>
+        <div class="arrows" id="up">↑</div>
+        <div class="arrows" id="right">→</div>
+        <script>
+            leftpressed = false
+            uppressed = false
+            rightpressed = false
+            downpressed = false
+            const Container = document.querySelector('main');
+            document.body.appendChild(Container);
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            // if isMobile, create joystick
+            if (isMobile) {
+              const joystickContainer = document.createElement('div')
+              joystickContainer.id = "joyDiv"
+              joystickContainer.style.position = 'absolute'
+              joystickContainer.style.top = '450px'
+              joystickContainer.style.left = '20px'
+              joystickContainer.style.width = '300px'
+              joystickContainer.style.height = '300px'
+              Container.appendChild(joystickContainer)
+              var joy = new JoyStick('joyDiv')
+            }
+            // else, show arrow key graphics and create keydown and keyup listeners that set pressed values to true while pressed, and false upon release
+            else {
+              arrows = document.getElementsByClassName("arrows")
+              for (let i = 0; i < arrows.length; i++) {
+                arrows[i].style.visibility = "visible"
+              }
+              document.addEventListener("keydown", function(event) {
+                if (event.key == "ArrowLeft"){
+                    leftpressed = true
+                    left.style.color = "white"
+                    left.style.backgroundColor = "black"
+                } else if (event.key == "ArrowUp"){
+                    uppressed = true
+                    up.style.color = "white"
+                    up.style.backgroundColor = "black"
+                } else if (event.key == "ArrowRight"){
+                    rightpressed = true
+                    right.style.color = "white"
+                    right.style.backgroundColor = "black"
+                } else if (event.key == "ArrowDown"){
+                    downpressed = true;
+                    down.style.color = "white"
+                    down.style.backgroundColor = "black"
+                }
+              });
+              document.addEventListener("keyup", function(event) {
+                if (event.key == "ArrowLeft"){
+                    leftpressed = false;
+                    left.style.color = "black";
+                    left.style.backgroundColor = "rgb(135, 142, 148)"
+                } else if (event.key == "ArrowUp"){
+                    uppressed = false;
+                    up.style.color = "black";
+                    up.style.backgroundColor = "rgb(135, 142, 148)"
+                } else if (event.key == "ArrowRight"){
+                    rightpressed = false;
+                    right.style.color = "black";
+                    right.style.backgroundColor = "rgb(135, 142, 148)"
+                } else if (event.key == "ArrowDown"){
+                    downpressed = false;
+                    down.style.color = "black";
+                    down.style.backgroundColor = "rgb(135, 142, 148)"
+                }
+              });
+            }
+            // Function that waits for given amount of milliseconds
+            function sleep(ms) {
+              return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            failed = false
+            // start game
+            async function Start() {
+              document.getElementById("start").style.visibility = "hidden"
+              document.getElementById("restart").style.visibility = "hidden"
+              document.getElementById("status").innerHTML = ""
+              document.getElementById("tips").style.visibility = "hidden"
+              document.getElementById("tracker").style.visibility = "visible"
+              failed = false
+              for (let i = 0; i < 5; i++) {
+                document.getElementById("score").innerHTML = i + 1
+                if (failed == true) {
+                  document.getElementById("status").innerHTML = "❌ You failed"
+                  document.getElementById("restart").style.visibility = "visible"
+                  break
+                }
+
+                // get random value
+                min = Math.ceil(1);
+                max = Math.floor(4);
+                random = Math.floor(Math.random() * (max - min) + min);
+                if (random == 1) {
+                  document.getElementById("b12").style.visibility = "visible"
+                  document.getElementById("b12").play()
+                  await sleep(960);
+                  if (isMobile) {
+                    if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
+                      document.getElementById("status").innerHTML = "✔️"
+                    }
+                    else {
+                      failed = true
+                    }
+                  }
+                  else {
+                    if (downpressed == true) { 
+                      document.getElementById("status").innerHTML = "✔️"
+                    }
+                    else {
+                      failed = true
+                    }
+                  }
+                  await sleep(920);
+                  document.getElementById("b12").style.visibility = "hidden"
+                }
+
+                else if (random == 2) {
+                  document.getElementById("df2").style.visibility = "visible"
+                  document.getElementById("df2").play()
+                  await sleep(450);
+                  if (isMobile) {
+                    if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
+                      document.getElementById("status").innerHTML = "✔️"
+                    }
+                    else {
+                      failed = true
+                    }
+                  }
+                  else {
+                    if (downpressed == false && rightpressed == false && uppressed == false) { 
+                      document.getElementById("status").innerHTML = "✔️"
+                    }
+                    else {
+                      failed = true
+                    }
+                  }
+                  await sleep(800);
+                  document.getElementById("df2").style.visibility = "hidden"
+                }
+
+                else if (random == 3) {
+                  document.getElementById("fcdf12").style.visibility = "visible"
+                  document.getElementById("fcdf12").play()
+                  await sleep(840);
+                  if (isMobile) {
+                    if (String(joy.GetDir()).localeCompare("SE") == 0) { 
+                      document.getElementById("status").innerHTML = "✔️"
+                    }
+                    else {
+                      failed = true
+                    }
+                  }
+                  else {
+                    if (downpressed == true && leftpressed == true) { 
+                      document.getElementById("status").innerHTML = "✔️"
+                    }
+                    else {
+                      failed = true
+                    }
+                  }
+                  await sleep(1040)
+                  document.getElementById("fcdf12").style.visibility = "hidden"
+                }
+              }
+            }
+            if (failed == true) {
+              document.getElementById("status").innerHTML = "❌ You failed"
+              document.getElementById("restart").style.visibility = "visible"
+            }
+            else {
+              document.getElementById("status").innerHTML = "You win!"
+            }
+        </script>
+    </body>
+</html>
