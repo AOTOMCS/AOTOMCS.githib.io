@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
       <title>
-        Paul Hard
+        Tekken Trainer - Paul (Normal)
       </title>
       <link rel="stylesheet" href="styles.css">
       <script src="src/joy.js"></script>
@@ -12,6 +12,7 @@
         <button type="button" id="start" onclick="Start()"> Start </button>
         <button type="button" id="restart" onclick="Start()"> Try Again? </button>
         <main></main>
+        <img id ="mokujin" src="Mokujin/standing.jpg">
         <div id="tracker">
           <div id="status"></div>
           <div id="score"></div>
@@ -79,6 +80,7 @@
                     downpressed = true;
                     down.style.color = "white"
                     down.style.backgroundColor = "black"
+                    document.getElementById('mokujin').src = "Mokujin/crouching.jpg";
                 }
               });
               document.addEventListener("keyup", function(event) {
@@ -98,6 +100,7 @@
                     downpressed = false;
                     down.style.color = "black";
                     down.style.backgroundColor = "rgb(135, 142, 148)"
+                    document.getElementById('mokujin').src = "Mokujin/standing.jpg";
                 }
               });
             }
@@ -113,36 +116,43 @@
               document.getElementById("status").innerHTML = ""
               document.getElementById("tips").style.visibility = "hidden"
               document.getElementById("tracker").style.visibility = "visible"
+              // reset failed value on restart
               failed = false
               for (let i = 0; i < 5; i++) {
-                document.getElementById("score").innerHTML = i + 1
+
                 if (failed == true) {
-                  document.getElementById("status").innerHTML = "❌ You failed"
                   document.getElementById("restart").style.visibility = "visible"
                   break
                 }
+
+                document.getElementById("status").innerHTML = ""
+                document.getElementById("score").innerHTML = i + 1
 
                 // get random value
                 min = Math.ceil(1);
                 max = Math.floor(4);
                 random = Math.floor(Math.random() * (max - min) + min);
+
                 if (random == 1) {
                   document.getElementById("b12").style.visibility = "visible"
                   document.getElementById("b12").play()
+                  document.getElementById("status").innerHTML = "stand"
                   await sleep(960);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
-                      document.getElementById("status").innerHTML = "✔️"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   else {
                     if (downpressed == true) { 
-                      document.getElementById("status").innerHTML = "✔️"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -156,17 +166,19 @@
                   await sleep(450);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
-                      document.getElementById("status").innerHTML = "✔️"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   else {
                     if (downpressed == false && rightpressed == false && uppressed == false) { 
-                      document.getElementById("status").innerHTML = "✔️"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -180,17 +192,19 @@
                   await sleep(840);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SE") == 0) { 
-                      document.getElementById("status").innerHTML = "✔️"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   else {
-                    if (downpressed == true && leftpressed == true) { 
-                      document.getElementById("status").innerHTML = "✔️"
+                    if (downpressed == true && rightpressed == true) { 
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -200,7 +214,6 @@
               }
             }
             if (failed == true) {
-              document.getElementById("status").innerHTML = "❌ You failed"
               document.getElementById("restart").style.visibility = "visible"
             }
             else {

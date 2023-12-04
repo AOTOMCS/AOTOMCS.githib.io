@@ -6,6 +6,20 @@ video {
     height: 720px;
     width: 1080px;
 }
+#mokujin {
+    position: absolute;
+    left: -125px;
+    top: 250px;
+    height: 480px;
+    width: 640px;
+}
+#start {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 body {
     margin: 0;
     padding: 0;
