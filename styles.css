@@ -1,24 +1,22 @@
 video {
     position: absolute;
-    left: 300px;
-    top: 200px;
+    left: 25%;
+    top: 20%;
     visibility: hidden;
     height: 720px;
     width: 1080px;
 }
 #mokujin {
-    position: absolute;
-    left: -125px;
-    top: 250px;
+    position: fixed;
+    left: -5%;
+    top: 20%;
     height: 480px;
     width: 640px;
 }
 #start {
-    margin: 0;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
 }
 body {
     margin: 0;
@@ -78,6 +76,25 @@ main {
     margin: auto;
     border: 2px solid black;
     text-align: center;
-    width: 800px;
-    height: 100px;
+    width: 40%;
 }
+@media screen and (max-width: 600px) {
+    #mokujin {
+        position: fixed;
+        left: 20%;
+        top: 55%;
+        height: 144px;
+        width: 192px;
+    }
+    video {
+        position: fixed;
+        left: 0%;
+        top: 20%;
+        visibility: hidden;
+        height: 360px;
+        width: 640px;
+    }
+  }
+  @media screen and (max-width: 2000px) {
+
+  }

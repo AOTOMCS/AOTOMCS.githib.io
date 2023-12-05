@@ -49,11 +49,11 @@
             if (isMobile) {
               const joystickContainer = document.createElement('div')
               joystickContainer.id = "joyDiv"
-              joystickContainer.style.position = 'absolute'
-              joystickContainer.style.top = '450px'
-              joystickContainer.style.left = '20px'
-              joystickContainer.style.width = '300px'
-              joystickContainer.style.height = '300px'
+              joystickContainer.style.position = 'fixed'
+              joystickContainer.style.top = '70%'
+              joystickContainer.style.left = '15%'
+              joystickContainer.style.width = '250px'
+              joystickContainer.style.height = '250px'
               Container.appendChild(joystickContainer)
               var joy = new JoyStick('joyDiv')
             }
@@ -136,7 +136,6 @@
                 if (random == 1) {
                   document.getElementById("b12").style.visibility = "visible"
                   document.getElementById("b12").play()
-                  document.getElementById("status").innerHTML = "stand"
                   await sleep(960);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
@@ -212,12 +211,12 @@
                   document.getElementById("fcdf12").style.visibility = "hidden"
                 }
               }
-            }
-            if (failed == true) {
+              if (failed == true) {
               document.getElementById("restart").style.visibility = "visible"
-            }
-            else {
-              document.getElementById("status").innerHTML = "You win!"
+              }
+              else {
+                document.getElementById("status").innerHTML = "You win!"
+              }
             }
         </script>
     </body>
