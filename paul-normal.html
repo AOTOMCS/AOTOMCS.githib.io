@@ -55,7 +55,14 @@
               joystickContainer.style.width = '250px'
               joystickContainer.style.height = '250px'
               Container.appendChild(joystickContainer)
-              var joy = new JoyStick('joyDiv')
+              var joy = new JoyStick('joyDiv', {}, function(stickData) {
+                if (String(stickData.cardinalDirection).localeCompare("SW") == 0 || String(stickData.cardinalDirection).localeCompare("S") == 0 || String(stickData.cardinalDirection).localeCompare("SE") == 0) {
+                  document.getElementById('mokujin').src = "Mokujin/crouching.jpg";
+                }
+                else {
+                  document.getElementById('mokujin').src = "Mokujin/standing.jpg";
+                }
+            });
             }
             // else, show arrow key graphics and create keydown and keyup listeners that set pressed values to true while pressed, and false upon release
             else {
