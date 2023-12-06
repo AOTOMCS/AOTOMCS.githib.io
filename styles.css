@@ -1,8 +1,7 @@
-video {
+img {
     position: absolute;
     left: 25%;
     top: 20%;
-    visibility: hidden;
     height: 720px;
     width: 1080px;
 }
@@ -102,16 +101,15 @@ button {
 @media screen and (max-width: 600px) {
     #mokujin {
         position: fixed;
-        left: 20%;
-        top: 55%;
+        left: 8%;
+        top: 60%;
         height: 144px;
         width: 192px;
     }
-    video {
+    img {
         position: fixed;
         left: 0%;
         top: 20%;
-        visibility: hidden;
         height: 360px;
         width: 640px;
     }
