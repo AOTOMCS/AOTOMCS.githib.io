@@ -25,6 +25,8 @@ body {
     background-color: rgb(104, 104, 104);
     user-select: none; /* Disable text selection */
     overflow: hidden; /* Disable scroll */
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
 }
 main {
     width: 100%;

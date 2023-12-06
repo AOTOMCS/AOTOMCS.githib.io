@@ -21,26 +21,11 @@
           <h2> Tips </h2>
           <p>Paul's full crouch sweep, "Gunba", is only -12 on block, meaning that it should be low parried on reaction.</p>
         </div>
-        <video id="32" webkit-playsinline playsinline>
-          <source src="/Paul/32.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
-        <video id="b12" webkit-playsinline playsinline>
-          <source src="/Paul/b12.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
-        <video id="df2" webkit-playsinline playsinline>
-          <source src="/Paul/df2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
-        <video id="fcdf12" webkit-playsinline playsinline>
-          <source src="/Paul/fcdf12.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
-        <video id="ws32" webkit-playsinline playsinline>
-          <source src="/Paul/ws32.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
+        <img id="attack" src="">
+        <audio id="audio">
+          <source src="" type="audio/mp3">
+          Your browser does not support the audio tag.
+        </audio>
         <div class="arrows" id="left">←</div>
         <div class="arrows" id="down">↓</div>
         <div class="arrows" id="up">↑</div>
@@ -127,23 +112,23 @@
               failed = false
               for (let i = 0; i < 10; i++) {
 
-
                 if (failed == true) {
                   document.getElementById("restart").style.visibility = "visible"
                   break
                 }
                 
+                document.getElementById("attack").style.visibility = "visible"
                 document.getElementById("status").innerHTML = ""
                 document.getElementById("score").innerHTML = i + 1
 
                 // get random value
-                min = Math.ceil(1);
-                max = Math.floor(6);
-                random = Math.floor(Math.random() * (max - min) + min);
+                random = Math.floor(Math.random() * (6 - 1) + 1);
 
                 if (random == 1) {
-                  document.getElementById("32").style.visibility = "visible"
-                  document.getElementById("32").play()
+                  document.getElementById("attack").src = "/Paul/32.gif"
+                  audio = document.getElementById("audio")
+                  audio.src = "/Paul/32.mp3"
+                  audio.play()
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0){ 
                       // pass
@@ -163,7 +148,7 @@
                   }
                   else {
                     if (downpressed == false && rightpressed == false && uppressed == false) { 
-                      document.getElementById("status").innerHTML = "stand"
+                      // pass
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"
@@ -179,11 +164,13 @@
                     }
                   }
                   await sleep(880);
-                  document.getElementById("32").style.visibility = "hidden"
+                  document.getElementById("attack").style.visibility = "hidden"
                 }
                 else if (random == 2) {
-                  document.getElementById("b12").style.visibility = "visible"
-                  document.getElementById("b12").play()
+                  document.getElementById("attack").src = "/Paul/b12.gif"
+                  audio = document.getElementById("audio")
+                  audio.src = "/Paul/b12.mp3"
+                  audio.play()
                   await sleep(960);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
@@ -204,12 +191,14 @@
                     }
                   }
                   await sleep(920);
-                  document.getElementById("b12").style.visibility = "hidden"
+                  document.getElementById("attack").style.visibility = "hidden"
                 }
 
                 else if (random == 3) {
-                  document.getElementById("df2").style.visibility = "visible"
-                  document.getElementById("df2").play()
+                  document.getElementById("attack").src = "/Paul/df2.gif"
+                  audio = document.getElementById("audio")
+                  audio.src = "/Paul/df2.mp3"
+                  audio.play()
                   await sleep(450);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
@@ -230,12 +219,14 @@
                     }
                   }
                   await sleep(800);
-                  document.getElementById("df2").style.visibility = "hidden"
+                  document.getElementById("attack").style.visibility = "hidden"
                 }
 
                 else if (random == 4) {
-                  document.getElementById("fcdf12").style.visibility = "visible"
-                  document.getElementById("fcdf12").play()
+                  document.getElementById("attack").src = "/Paul/fcdf12.gif"
+                  audio = document.getElementById("audio")
+                  audio.src = "/Paul/fcdf12.mp3"
+                  audio.play()
                   await sleep(840);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SE") == 0) { 
@@ -256,12 +247,14 @@
                     }
                   }
                   await sleep(1040)
-                  document.getElementById("fcdf12").style.visibility = "hidden"
+                  document.getElementById("attack").style.visibility = "hidden"
                 }
 
                 else if (random == 5) {
-                  document.getElementById("ws32").style.visibility = "visible"
-                  document.getElementById("ws32").play()
+                  document.getElementById("attack").src = "/Paul/ws32.gif"
+                  audio = document.getElementById("audio")
+                  audio.src = "/Paul/ws32.mp3"
+                  audio.play()
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0){ 
                       // pass
@@ -281,7 +274,7 @@
                   }
                   else {
                     if (downpressed == false && rightpressed == false && uppressed == false) { 
-                      document.getElementById("status").innerHTML = "stand"
+                      // pass
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"
@@ -296,14 +289,15 @@
                       failed = true
                     }
                     await sleep(880);
-                    document.getElementById("ws32").style.visibility = "hidden"
+                    document.getElementById("attack").style.visibility = "hidden"
                   }
                 }
+                else {
+                document.getElementById("status").innerHTML = "Something has gone wrong"
+                }
               }
-              if (failed == true) {
               document.getElementById("restart").style.visibility = "visible"
-              }
-              else {
+              if (failed == false) {
                 document.getElementById("status").innerHTML = "You win!"
               }
             }
