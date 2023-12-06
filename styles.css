@@ -1,9 +1,10 @@
-img {
+#attack {
     position: absolute;
     left: 25%;
     top: 20%;
-    height: 720px;
-    width: 1080px;
+    height: 480px;
+    width: 640px;
+    visibility: hidden;
 }
 #mokujin {
     position: fixed;
@@ -106,7 +107,7 @@ button {
         height: 144px;
         width: 192px;
     }
-    img {
+    #attack {
         position: fixed;
         left: 0%;
         top: 20%;
