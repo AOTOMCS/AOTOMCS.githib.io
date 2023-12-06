@@ -68,6 +68,8 @@ main {
     position: fixed;
     border-style: solid;
     border-width: 2px;
+    right: 10px;
+    top: 50px;
 }
 h1, h2, h3 {
     text-align: center;
