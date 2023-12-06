@@ -21,18 +21,7 @@
           <h2> Tips </h2>
           <p>Paul's full crouch sweep, "Gunba", is only -12 on block, meaning that it should be low parried on reaction.</p>
         </div>
-        <video id="b12">
-          <source src="/Paul/b12.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
-        <video id="df2">
-          <source src="/Paul/df2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
-        <video id="fcdf12">
-          <source src="/Paul/fcdf12.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
+        <img id="attack" src="" alt="Paul Phoenix doing an attack.">
         <div class="arrows" id="left">←</div>
         <div class="arrows" id="down">↓</div>
         <div class="arrows" id="up">↑</div>
@@ -139,8 +128,7 @@
                 random = Math.floor(Math.random() * (4 - 1) + 1);
 
                 if (random == 1) {
-                  document.getElementById("b12").style.visibility = "visible"
-                  document.getElementById("b12").play()
+                  document.getElementById("attack").src = "/Paul/b12.gif"
                   await sleep(960);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
@@ -161,13 +149,11 @@
                     }
                   }
                   await sleep(920);
-                  document.getElementById("b12").style.visibility = "hidden"
-                  document.getElementById("b12").pause()
+                  document.getElementById("attack").src = ""
                 }
 
                 else if (random == 2) {
-                  document.getElementById("df2").style.visibility = "visible"
-                  document.getElementById("df2").play()
+                  document.getElementById("attack").src = "/Paul/df2.gif"
                   await sleep(450);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
@@ -188,13 +174,11 @@
                     }
                   }
                   await sleep(800);
-                  document.getElementById("df2").style.visibility = "hidden"
-                  document.getElementById("df2").pause()
+                  document.getElementById("df2").src = ""
                 }
 
                 else if (random == 3) {
-                  document.getElementById("fcdf12").style.visibility = "visible"
-                  document.getElementById("fcdf12").play()
+                  document.getElementById("attack").src = "/Paul/fcdf12.gif"
                   await sleep(840);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SE") == 0) { 
@@ -215,8 +199,7 @@
                     }
                   }
                   await sleep(1040)
-                  document.getElementById("fcdf12").style.visibility = "hidden"
-                  document.getElementById("fcdf12").pause()
+                  document.getElementById("attack").src = ""
                 }
                 else {
                 document.getElementById("status").innerHTML = "Something has gone wrong"
