@@ -1,6 +1,6 @@
 #attack {
-    position: absolute;
-    left: 25%;
+    position: fixed;
+    left: 35%;
     top: 20%;
     height: 480px;
     width: 640px;
@@ -12,6 +12,7 @@
     top: 20%;
     height: 480px;
     width: 640px;
+    border: 2px solid #3a1e1e;
 }
 #start {
     position: fixed;
@@ -21,7 +22,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(105, 105, 105);
+    background-color: rgb(104, 104, 104);
     user-select: none; /* Disable text selection */
     overflow: hidden; /* Disable scroll */
 }
@@ -101,18 +102,16 @@ button {
 }
 @media screen and (max-width: 600px) {
     #mokujin {
-        position: fixed;
-        left: 8%;
-        top: 60%;
+        left: 23%;
+        top: 65%;
         height: 144px;
         width: 192px;
     }
     #attack {
-        position: fixed;
         left: 0%;
-        top: 20%;
-        height: 360px;
-        width: 640px;
+        top: 15%;
+        height: 240px;
+        width: 320px;
     }
     #status {
         font-size: 20px;
@@ -124,13 +123,19 @@ button {
   }
   @media screen and (max-width: 1000px) and (min-width: 600px) {
     #tips {
-        font-size: 40px;
+        font-size: 30px;
         width: 60%;
     }
     #mokujin {
-        height: 360px;
-        width: 640px;
-        top: 50%;
+        height: 240px;
+        width: 320px;
+        top: 60%;
+    }
+    #attack {
+        left: 30%;
+        top: 20%;
+        height: 240px;
+        width: 320px;
     }
     button {
         position: fixed;

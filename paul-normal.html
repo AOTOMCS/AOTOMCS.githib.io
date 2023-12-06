@@ -206,10 +206,8 @@
                 document.getElementById("status").innerHTML = "Something has gone wrong"
                 }
               }
-              if (failed == true) {
               document.getElementById("restart").style.visibility = "visible"
-              }
-              else {
+              if (failed == false) {
                 document.getElementById("status").innerHTML = "You win!"
               }
             }
