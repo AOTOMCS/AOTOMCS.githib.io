@@ -22,6 +22,10 @@
           <p>Paul's full crouch sweep, "Gunba", is only -12 on block, meaning that it should be low parried on reaction.</p>
         </div>
         <img id="attack" src="">
+        <audio id="audio">
+          <source src="" type="audio/mp3">
+          Your browser does not support the audio tag.
+        </audio>
         <div class="arrows" id="left">←</div>
         <div class="arrows" id="down">↓</div>
         <div class="arrows" id="up">↑</div>
@@ -130,6 +134,9 @@
 
                 if (random == 1) {
                   document.getElementById("attack").src = "/Paul/b12.gif"
+                  audio = document.getElementById("audio")
+                  audio.src = "/Paul/b12.mp3"
+                  audio.play()
                   await sleep(960);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
@@ -155,6 +162,9 @@
 
                 else if (random == 2) {
                   document.getElementById("attack").src = "/Paul/df2.gif"
+                  audio = document.getElementById("audio")
+                  audio.src = "/Paul/df2.mp3"
+                  audio.play()
                   await sleep(450);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
@@ -180,6 +190,9 @@
 
                 else if (random == 3) {
                   document.getElementById("attack").src = "/Paul/fcdf12.gif"
+                  audio = document.getElementById("audio")
+                  audio.src = "/Paul/fcdf12.mp3"
+                  audio.play()
                   await sleep(840);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SE") == 0) { 
