@@ -2,13 +2,14 @@
 <html lang="en">
     <head>
       <title>
-        Paul Hard
+        Tekken Trainer - Paul
       </title>
       <link rel="stylesheet" href="styles.css">
       <script src="src/joy.js"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
     </head>
     <body>
+        <button type="button" id="back" onclick="location.href='/index.html'"> Back to Home Page</button>
         <button type="button" id="start" onclick="Start()"> Start </button>
         <button type="button" id="restart" onclick="Start()"> Try Again? </button>
         <main></main>
@@ -104,11 +105,14 @@
             failed = false
             // start game
             async function Start() {
+              audio = document.getElementById("audio")
+              status = document.getElementById("status").innerHTML
+              attack = document.getElementById("attack")
               document.getElementById("start").style.visibility = "hidden"
               document.getElementById("restart").style.visibility = "hidden"
-              document.getElementById("status").innerHTML = ""
               document.getElementById("tips").style.visibility = "hidden"
               document.getElementById("tracker").style.visibility = "visible"
+              status.innerHTML = ""
               failed = false
               for (let i = 0; i < 10; i++) {
 
@@ -117,16 +121,15 @@
                   break
                 }
                 
-                document.getElementById("attack").style.visibility = "visible"
-                document.getElementById("status").innerHTML = ""
+                attack.style.visibility = "visible"
+                status.innerHTML = ""
                 document.getElementById("score").innerHTML = i + 1
 
                 // get random value
                 random = Math.floor(Math.random() * (6 - 1) + 1);
 
                 if (random == 1) {
-                  document.getElementById("attack").src = "/Paul/32.gif"
-                  audio = document.getElementById("audio")
+                  attack.src = "/Paul/32.gif"
                   audio.src = "/Paul/32.mp3"
                   audio.play()
                   if (isMobile) {
@@ -134,15 +137,15 @@
                       // pass
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                     await sleep(680);
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0){ 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      status.innerHTML = "🆗 Success!"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -151,107 +154,106 @@
                       // pass
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                     await sleep(680);
                     if (downpressed == true) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      status.innerHTML = "🆗 Success!"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   await sleep(880);
-                  document.getElementById("attack").style.visibility = "hidden"
+                  attack.style.visibility = "hidden"
                 }
                 else if (random == 2) {
-                  document.getElementById("attack").src = "/Paul/b12.gif"
-                  audio = document.getElementById("audio")
+                  attack.src = "/Paul/b12.gif"
                   audio.src = "/Paul/b12.mp3"
                   audio.play()
                   await sleep(960);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      status.innerHTML = "🆗 Success!"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   else {
                     if (downpressed == true) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      status.innerHTML = "🆗 Success!"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   await sleep(920);
-                  document.getElementById("attack").style.visibility = "hidden"
+                  attack.style.visibility = "hidden"
                 }
 
                 else if (random == 3) {
-                  document.getElementById("attack").src = "/Paul/df2.gif"
+                  attack.src = "/Paul/df2.gif"
                   audio = document.getElementById("audio")
                   audio.src = "/Paul/df2.mp3"
                   audio.play()
                   await sleep(450);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      status.innerHTML = "🆗 Success!"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   else {
                     if (downpressed == false && rightpressed == false && uppressed == false) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      status.innerHTML = "🆗 Success!"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   await sleep(800);
-                  document.getElementById("attack").style.visibility = "hidden"
+                  attack.style.visibility = "hidden"
                 }
 
                 else if (random == 4) {
-                  document.getElementById("attack").src = "/Paul/fcdf12.gif"
+                  attack.src = "/Paul/fcdf12.gif"
                   audio = document.getElementById("audio")
                   audio.src = "/Paul/fcdf12.mp3"
                   audio.play()
                   await sleep(840);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SE") == 0) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      status.innerHTML = "🆗 Success!"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   else {
                     if (downpressed == true && rightpressed == true) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      status.innerHTML = "🆗 Success!"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   await sleep(1040)
-                  document.getElementById("attack").style.visibility = "hidden"
+                  attack.style.visibility = "hidden"
                 }
 
                 else if (random == 5) {
-                  document.getElementById("attack").src = "/Paul/ws32.gif"
+                  attack.src = "/Paul/ws32.gif"
                   audio = document.getElementById("audio")
                   audio.src = "/Paul/ws32.mp3"
                   audio.play()
@@ -260,15 +262,15 @@
                       // pass
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                     await sleep(840);
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0){ 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      status.innerHTML = "🆗 Success!"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -277,28 +279,30 @@
                       // pass
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                     await sleep(840);
                     if (downpressed == true) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      status.innerHTML = "🆗 Success!"
                     }
                     else {
-                      document.getElementById("status").innerHTML = "❌ You failed"
+                      status.innerHTML = "❌ You failed"
                       failed = true
                     }
                     await sleep(880);
-                    document.getElementById("attack").style.visibility = "hidden"
+                    attack.style.visibility = "hidden"
                   }
                 }
                 else {
-                document.getElementById("status").innerHTML = "Something has gone wrong"
+                status.innerHTML = "Something has gone wrong"
                 }
               }
               document.getElementById("restart").style.visibility = "visible"
               if (failed == false) {
-                document.getElementById("status").innerHTML = "You win!"
+                status.innerHTML = "You win!"
+                audio.src = "/You win!.mp3"
+                audio.play()
               }
             }
         </script>
