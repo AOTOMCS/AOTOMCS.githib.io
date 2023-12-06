@@ -112,11 +112,13 @@
             failed = false
             // start game
             async function Start() {
+              audio = document.getElementById("audio")
+              attack = document.getElementById("attack")
               document.getElementById("start").style.visibility = "hidden"
               document.getElementById("restart").style.visibility = "hidden"
-              document.getElementById("status").innerHTML = ""
               document.getElementById("tips").style.visibility = "hidden"
               document.getElementById("tracker").style.visibility = "visible"
+              document.getElementById("status").innerHTML = ""
               // reset failed value on restart
               failed = false
               for (let i = 0; i < 5; i++) {
@@ -126,7 +128,7 @@
                   break
                 }
 
-                document.getElementById("attack").style.visibility = "visible"
+                attack.style.visibility = "visible"
                 document.getElementById("status").innerHTML = ""
                 document.getElementById("score").innerHTML = i + 1
 
@@ -134,8 +136,7 @@
                 random = Math.floor(Math.random() * (4 - 1) + 1);
 
                 if (random == 1) {
-                  document.getElementById("attack").src = "/Paul/b12.gif"
-                  audio = document.getElementById("audio")
+                  attack.src = "/Paul/b12.gif"
                   audio.src = "/Paul/b12.mp3"
                   audio.play()
                   await sleep(960);
@@ -158,12 +159,11 @@
                     }
                   }
                   await sleep(920);
-                  document.getElementById("attack").style.visibility = "hidden"
+                  attack.style.visibility = "hidden"
                 }
 
                 else if (random == 2) {
-                  document.getElementById("attack").src = "/Paul/df2.gif"
-                  audio = document.getElementById("audio")
+                  attack.src = "/Paul/df2.gif"
                   audio.src = "/Paul/df2.mp3"
                   audio.play()
                   await sleep(450);
@@ -186,12 +186,11 @@
                     }
                   }
                   await sleep(800);
-                  document.getElementById("attack").style.visibility = "hidden"
+                  attack.style.visibility = "hidden"
                 }
 
                 else if (random == 3) {
-                  document.getElementById("attack").src = "/Paul/fcdf12.gif"
-                  audio = document.getElementById("audio")
+                  attack.src = "/Paul/fcdf12.gif"
                   audio.src = "/Paul/fcdf12.mp3"
                   audio.play()
                   await sleep(840);
@@ -214,7 +213,7 @@
                     }
                   }
                   await sleep(1040)
-                  document.getElementById("attack").style.visibility = "hidden"
+                  attack.style.visibility = "hidden"
                 }
                 else {
                 document.getElementById("status").innerHTML = "Something has gone wrong"
@@ -223,6 +222,8 @@
               document.getElementById("restart").style.visibility = "visible"
               if (failed == false) {
                 document.getElementById("status").innerHTML = "You win!"
+                audio.src = "/You win!.mp3"
+                audio.play()
               }
             }
         </script>

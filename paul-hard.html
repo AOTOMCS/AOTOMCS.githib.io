@@ -106,13 +106,12 @@
             // start game
             async function Start() {
               audio = document.getElementById("audio")
-              status = document.getElementById("status")
               attack = document.getElementById("attack")
               document.getElementById("start").style.visibility = "hidden"
               document.getElementById("restart").style.visibility = "hidden"
               document.getElementById("tips").style.visibility = "hidden"
               document.getElementById("tracker").style.visibility = "visible"
-              status.innerHTML = ""
+              document.getElementById("status").innerHTML = ""
               failed = false
               for (let i = 0; i < 10; i++) {
 
@@ -122,7 +121,7 @@
                 }
                 
                 attack.style.visibility = "visible"
-                status.innerHTML = ""
+                document.getElementById("status").innerHTML = ""
                 document.getElementById("score").innerHTML = i + 1
 
                 // get random value
@@ -137,15 +136,15 @@
                       // pass
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                     await sleep(680);
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0){ 
-                      status.innerHTML = "🆗 Success!"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -154,15 +153,15 @@
                       // pass
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                     await sleep(680);
                     if (downpressed == true) { 
-                      status.innerHTML = "🆗 Success!"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -176,19 +175,19 @@
                   await sleep(960);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
-                      status.innerHTML = "🆗 Success!"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   else {
                     if (downpressed == true) { 
-                      status.innerHTML = "🆗 Success!"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -204,19 +203,19 @@
                   await sleep(450);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
-                      status.innerHTML = "🆗 Success!"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   else {
                     if (downpressed == false && rightpressed == false && uppressed == false) { 
-                      status.innerHTML = "🆗 Success!"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -232,19 +231,19 @@
                   await sleep(840);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SE") == 0) { 
-                      status.innerHTML = "🆗 Success!"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
                   else {
                     if (downpressed == true && rightpressed == true) { 
-                      status.innerHTML = "🆗 Success!"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -262,15 +261,15 @@
                       // pass
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                     await sleep(840);
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0){ 
-                      status.innerHTML = "🆗 Success!"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                   }
@@ -279,15 +278,15 @@
                       // pass
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                     await sleep(840);
                     if (downpressed == true) { 
-                      status.innerHTML = "🆗 Success!"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
-                      status.innerHTML = "❌ You failed"
+                      document.getElementById("status").innerHTML = "❌ You failed"
                       failed = true
                     }
                     await sleep(880);
@@ -295,12 +294,12 @@
                   }
                 }
                 else {
-                status.innerHTML = "Something has gone wrong"
+                document.getElementById("status").innerHTML = "Something has gone wrong"
                 }
               }
               document.getElementById("restart").style.visibility = "visible"
               if (failed == false) {
-                status.innerHTML = "You win!"
+                document.getElementById("status").innerHTML = "You win!"
                 audio.src = "/You win!.mp3"
                 audio.play()
               }
