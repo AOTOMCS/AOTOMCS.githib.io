@@ -136,9 +136,7 @@
                 document.getElementById("score").innerHTML = i + 1
 
                 // get random value
-                min = Math.ceil(1);
-                max = Math.floor(4);
-                random = Math.floor(Math.random() * (max - min) + min);
+                random = Math.floor(Math.random() * (4 - 1) + 1);
 
                 if (random == 1) {
                   document.getElementById("b12").style.visibility = "visible"
@@ -164,6 +162,7 @@
                   }
                   await sleep(920);
                   document.getElementById("b12").style.visibility = "hidden"
+                  document.getElementById("b12").pause()
                 }
 
                 else if (random == 2) {
@@ -190,6 +189,7 @@
                   }
                   await sleep(800);
                   document.getElementById("df2").style.visibility = "hidden"
+                  document.getElementById("df2").pause()
                 }
 
                 else if (random == 3) {
@@ -216,6 +216,7 @@
                   }
                   await sleep(1040)
                   document.getElementById("fcdf12").style.visibility = "hidden"
+                  document.getElementById("fcdf12").pause()
                 }
               }
               if (failed == true) {
