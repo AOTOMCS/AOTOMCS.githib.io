@@ -18,7 +18,7 @@
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-size: cover;
-                color: #3a1e1e;
+                color: white;
                 font-weight: bold;
             }
         </style>
@@ -56,7 +56,9 @@
             difficulty = temp.value;
             // create url by concatenating select values with ".html"
             Page = character + '-' + difficulty + '.html';
-            window.location.href = Page; 
+            if (Page.includes("Select") == false) {
+                window.location.href = Page; 
+            }
         }
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
