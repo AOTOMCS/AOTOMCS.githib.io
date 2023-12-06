@@ -115,12 +115,13 @@
               // reset failed value on restart
               failed = false
               for (let i = 0; i < 5; i++) {
-
+                
                 if (failed == true) {
                   document.getElementById("restart").style.visibility = "visible"
                   break
                 }
 
+                document.getElementById("attack").style.visibility = "visible"
                 document.getElementById("status").innerHTML = ""
                 document.getElementById("score").innerHTML = i + 1
 
@@ -149,7 +150,7 @@
                     }
                   }
                   await sleep(920);
-                  document.getElementById("attack").src = ""
+                  document.getElementById("attack").style.visibility = "hidden"
                 }
 
                 else if (random == 2) {
@@ -174,7 +175,7 @@
                     }
                   }
                   await sleep(800);
-                  document.getElementById("df2").src = ""
+                  document.getElementById("attack").style.visibility = "hidden"
                 }
 
                 else if (random == 3) {
@@ -199,7 +200,7 @@
                     }
                   }
                   await sleep(1040)
-                  document.getElementById("attack").src = ""
+                  document.getElementById("attack").style.visibility = "hidden"
                 }
                 else {
                 document.getElementById("status").innerHTML = "Something has gone wrong"
