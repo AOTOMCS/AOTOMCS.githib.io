@@ -207,7 +207,7 @@
                   }
                   else {
                     if (downpressed == true && rightpressed == true) { 
-                      document.getElementById("status").innerHTML = "test"
+                      document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"
@@ -217,6 +217,9 @@
                   await sleep(1040)
                   document.getElementById("fcdf12").style.visibility = "hidden"
                   document.getElementById("fcdf12").pause()
+                }
+                else {
+                document.getElementById("status").innerHTML = "Something has gone wrong"
                 }
               }
               if (failed == true) {
