@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="styles.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -10,26 +11,40 @@
         <title>
             Tekken Trainer
         </title>
+        <style>
+            body {
+                background-image: url("Dojo.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+                color: #3a1e1e;
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body>
         <h1> Tekken Trainer </h1>
         <p> Train your Tekken reactions on the go! This site is for those who want to train their character matchup knowledge and beat common online strats.</p>
+        <div id="content">
         <h2> How to play: </h2>
-        <h3 id="mobile">Hold "left" on the thumbstick to block mids, and "down" or "down-left" to block lows. Hold "down-forward" to low parry.</h3>
-        <h3 id="pc">Hold "left" on the arrow keys to block mids, and "down" or "down-left" to block lows. Hold "down-forward" to low parry.</h3>
-        <select name="Character" id="Character" required> 
-            <option disabled selected> Select a Character</option>
-            <option value="paul"> Paul </option>
-            <option value="dragunov"> Dragunov </option>
-            <option value="lili"> Lili </option>
-        </select>
-        <select name="Difficulty" id="Difficulty" required> 
-            <option disabled selected> Select a Difficulty</option>
-            <option value="normal"> Normal </option>
-            <option value="hard"> Hard </option>
-        </select>
-        <button type="button" id="submit"> Submit </button>
+            <h3 id="mobile">Hold "left" on the thumbstick to block mids, and "down" or "down-left" to block lows. Hold "down-forward" to low parry.</h3>
+            <h3 id="pc">Hold "left" on the arrow keys to block mids, and "down" or "down-left" to block lows. Hold "down-forward" to low parry.</h3>
+            <select class="form-select" name="Character" id="Character" required> 
+                <option disabled selected> Select a Character</option>
+                <option value="paul"> Paul </option>
+                <option value="dragunov"> Dragunov </option>
+                <option value="lili"> Lili </option>
+            </select>
+            <select class="form-select" name="Difficulty" id="Difficulty" required> 
+                <option disabled selected> Select a Difficulty</option>
+                <option value="normal"> Normal </option>
+                <option value="hard"> Hard </option>
+            </select>
+            <button type="button" id="submit"> Submit </button>
+        </div>  
     </body>
+    
     <footer>
 
     </footer>
@@ -39,11 +54,9 @@
             character = temp.value;
             temp = document.querySelector("#Difficulty");
             difficulty = temp.value;
+            // create url by concatenating select values with ".html"
             Page = character + '-' + difficulty + '.html';
-            // If select value does not include "Select", as in the default value "Select your character", redirect
-            if (Page.includes("Select") == false) {
-                window.location.href = Page;
-            }
+            window.location.href = Page; 
         }
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         if (isMobile) {
