@@ -55,7 +55,8 @@
             temp = document.querySelector("#Difficulty");
             difficulty = temp.value;
             // create url by concatenating select values with ".html"
-            Page = character + '-' + difficulty + '.html';
+            Page = character + '-' + difficulty + '.html'
+            // if values not selected, dont redirect
             if (Page.includes("Select") == false) {
                 window.location.href = Page; 
             }

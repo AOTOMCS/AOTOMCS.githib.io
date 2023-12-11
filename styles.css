@@ -107,7 +107,7 @@ button {
 @media screen and (max-width: 600px) {
     #mokujin {
         left: 23%;
-        top: 65%;
+        top: 50%;
         height: 144px;
         width: 192px;
     }
@@ -124,35 +124,49 @@ button {
     #score {
         font-size: 20px;
     }
-  }
-  @media screen and (max-width: 1000px) and (min-width: 600px) {
     #tips {
-        font-size: 30px;
+        font-size: 15px;
+        width: 70%;
+    }
+    #start {
+        position: fixed;
+        top: 40%;
+        left: 40%;
+    }
+  }
+  @media screen and (max-width: 1200px) and (min-width: 600px) {
+    #tips {
+        font-size: 20px;
         width: 60%;
+        left: 80%;
+    }
+    #back {
+        left: 0%;
+        height: 100px;
+        width: 154px;
+        font-size: 20px;
     }
     #mokujin {
         height: 240px;
         width: 320px;
-        top: 60%;
+        top: 40%;
     }
     #attack {
-        left: 30%;
-        top: 20%;
+        left: 45%;
+        top: 40%;
         height: 240px;
         width: 320px;
     }
     button {
         position: fixed;
-        top: 50%;
-        left: 50%;
         height: 150px;
         width: 300px;
-        font-size: 50px;
+        font-size: 30px;
     }
     #status {
-        font-size: 50px;
+        font-size: 30px;
     }
     #score {
-        font-size: 50px;
+        font-size: 30px;
     }
   }
