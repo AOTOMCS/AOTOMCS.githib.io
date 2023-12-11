@@ -101,13 +101,17 @@
                     down.style.backgroundColor = "rgb(135, 142, 148)"
                     document.getElementById('mokujin').src = "Mokujin/standing.jpg";
                 }
+                else if (event.key == "Spacebar" || event.key == " "){
+                    if (failed == true) {
+                      Start()
+                    }
+                }
               });
             }
             // Function that waits for given amount of milliseconds
             function sleep(ms) {
               return new Promise(resolve => setTimeout(resolve, ms));
             }
-            failed = false
             // start game
             async function Start() {
               audio = document.getElementById("audio")
@@ -141,7 +145,9 @@
                     }
                     await sleep(680);
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0){ 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      if (failed != true) {
+                        document.getElementById("status").innerHTML = "🆗 Success!"
+                      }
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"
@@ -158,7 +164,9 @@
                     }
                     await sleep(680);
                     if (downpressed == true) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      if (failed != true) {
+                        document.getElementById("status").innerHTML = "🆗 Success!"
+                      }
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"
@@ -266,7 +274,9 @@
                     }
                     await sleep(840);
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0){ 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      if (failed != true) {
+                        document.getElementById("status").innerHTML = "🆗 Success!"
+                      }
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"
@@ -283,7 +293,9 @@
                     }
                     await sleep(840);
                     if (downpressed == true) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      if (failed != true) {
+                        document.getElementById("status").innerHTML = "🆗 Success!"
+                      }
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"

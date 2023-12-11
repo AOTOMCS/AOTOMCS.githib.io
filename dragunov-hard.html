@@ -102,13 +102,17 @@
                     down.style.backgroundColor = "rgb(135, 142, 148)"
                     document.getElementById('mokujin').src = "Mokujin/standing.jpg";
                 }
+                else if (event.key == "Spacebar" || event.key == " "){
+                    if (failed == true) {
+                      Start()
+                    }
+                }
               });
             }
             // Function that waits for given amount of milliseconds
             function sleep(ms) {
               return new Promise(resolve => setTimeout(resolve, ms));
             }
-            failed = false
             // start game
             async function Start() {
               audio = document.getElementById("audio")
@@ -173,7 +177,9 @@
                   await sleep(400);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      if (failed != true) {
+                        document.getElementById("status").innerHTML = "🆗 Success!"
+                      }
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"
@@ -182,7 +188,9 @@
                   }
                   else {
                     if (downpressed == true) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      if (failed != true) {
+                        document.getElementById("status").innerHTML = "🆗 Success!"
+                      }
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"
@@ -250,9 +258,9 @@
                   attack.src = "/Dragunov/db312.gif"
                   audio.src = "/Dragunov/db312.mp3"
                   audio.play()
-                  
+                  await sleep(680);
                   if (isMobile) {
-                    if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
+                    if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
                       document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
@@ -261,7 +269,7 @@
                     }
                   }
                   else {
-                    if (downpressed == true) { 
+                    if (downpressed == false && rightpressed == false && uppressed == false) { 
                       document.getElementById("status").innerHTML = "🆗 Success!"
                     }
                     else {
@@ -296,7 +304,9 @@
                   await sleep(320);
                   if (isMobile) {
                     if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      if (failed != true) {
+                        document.getElementById("status").innerHTML = "🆗 Success!"
+                      }
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"
@@ -305,7 +315,9 @@
                   }
                   else {
                     if (downpressed == true) { 
-                      document.getElementById("status").innerHTML = "🆗 Success!"
+                      if (failed != true) {
+                        document.getElementById("status").innerHTML = "🆗 Success!"
+                      }
                     }
                     else {
                       document.getElementById("status").innerHTML = "❌ You failed"
