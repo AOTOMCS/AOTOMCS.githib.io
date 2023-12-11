@@ -127,13 +127,6 @@
               // reset failed value on restart
               failed = false
               for (let i = 0; i < 5; i++) {
-                
-                if (failed == true) {
-                  document.getElementById("restart").style.visibility = "visible"
-                  await sleep(1000);
-                  document.getElementById("status").innerHTML = "Spacebar to Try Again"
-                  break
-                }
 
                 attack.style.visibility = "visible"
                 document.getElementById("status").innerHTML = ""
@@ -263,17 +256,20 @@
                 else {
                 document.getElementById("status").innerHTML = "Something has gone wrong"
                 }
-              }
-              document.getElementById("restart").style.visibility = "visible"
-              if (failed == true) {
-                document.getElementById("status").innerHTML = "You win!"
-                audio.src = "/You win!.mp3"
-                audio.play()
-              }
-              else {
+
+                if (failed == true) {
+                document.getElementById("restart").style.visibility = "visible"
                 await sleep(800);
-                if (isMobile) {
-                  document.getElementById("status").innerHTML = "Spacebar to Try Again"
+                if (isMobile == false) {
+                    document.getElementById("status").innerHTML = "Spacebar to Try Again"
+                  }
+                break
+                }
+                else if (i == 4) {
+                  document.getElementById("restart").style.visibility = "visible"
+                  document.getElementById("status").innerHTML = "You win!"
+                  audio.src = "/You win!.mp3"
+                  audio.play()
                 }
               }
             }
