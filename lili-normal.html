@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>
+        Tekken Trainer - Lili
+      </title>
+      <link rel="stylesheet" href="styles.css">
+      <script src="src/joy.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </head>
+    <body>
+        <button type="button" id="back" onclick="location.href='/index.html'"> Back to Home Page</button>
+        <button type="button" id="start" onclick="Start()"> Start </button>
+        <button type="button" id="restart" onclick="Start()"> Try Again? </button>
+        <main></main>
+        <img id ="mokujin" src="Mokujin/standing.jpg">
+        <div id="tracker">
+          <div id="status"></div>
+          <div id="score"></div>
+        </div>
+        <div id="tips">
+          <h2> Tips </h2>
+          <p>Lili's d/f+4,4 is a tricky string that starts with a mid kick into a low. 
+            Thankfully, the low is -15 on block, meaning it can be crouch guarded and does not have to be low parried for scaled damage.</p>
+        </div>
+        <img id="attack" src="">
+        <audio id="audio">
+          <source src="" type="audio/mp3">
+          Your browser does not support the audio tag.
+        </audio>
+        <div class="arrows" id="left">←</div>
+        <div class="arrows" id="down">↓</div>
+        <div class="arrows" id="up">↑</div>
+        <div class="arrows" id="right">→</div>
+        <script>
+            leftpressed = false
+            uppressed = false
+            rightpressed = false
+            downpressed = false
+            const Container = document.querySelector('main');
+            document.body.appendChild(Container);
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            // if isMobile, create joystick
+            if (isMobile) {
+              const joystickContainer = document.createElement('div')
+              joystickContainer.id = "joyDiv"
+              joystickContainer.style.position = 'fixed'
+              joystickContainer.style.top = '70%'
+              joystickContainer.style.left = '15%'
+              joystickContainer.style.width = '250px'
+              joystickContainer.style.height = '250px'
+              Container.appendChild(joystickContainer)
+              var joy = new JoyStick('joyDiv', {}, function(stickData) {
+                if (String(stickData.cardinalDirection).localeCompare("SW") == 0 || String(stickData.cardinalDirection).localeCompare("S") == 0 || String(stickData.cardinalDirection).localeCompare("SE") == 0) {
+                  document.getElementById('mokujin').src = "Mokujin/crouching.jpg";
+                }
+                else {
+                  document.getElementById('mokujin').src = "Mokujin/standing.jpg";
+                }
+            });
+            }
+            // else, show arrow key graphics and create keydown and keyup listeners that set pressed values to true while pressed, and false upon release
+            else {
+              arrows = document.getElementsByClassName("arrows")
+              for (let i = 0; i < arrows.length; i++) {
+                arrows[i].style.visibility = "visible"
+              }
+              document.addEventListener("keydown", function(event) {
+                if (event.key == "ArrowLeft"){
+                    leftpressed = true
+                    left.style.color = "white"
+                    left.style.backgroundColor = "black"
+                } else if (event.key == "ArrowUp"){
+                    uppressed = true
+                    up.style.color = "white"
+                    up.style.backgroundColor = "black"
+                } else if (event.key == "ArrowRight"){
+                    rightpressed = true
+                    right.style.color = "white"
+                    right.style.backgroundColor = "black"
+                } else if (event.key == "ArrowDown"){
+                    downpressed = true;
+                    down.style.color = "white"
+                    down.style.backgroundColor = "black"
+                    document.getElementById('mokujin').src = "Mokujin/crouching.jpg";
+                }
+              });
+              document.addEventListener("keyup", function(event) {
+                if (event.key == "ArrowLeft"){
+                    leftpressed = false;
+                    left.style.color = "black";
+                    left.style.backgroundColor = "rgb(135, 142, 148)"
+                } else if (event.key == "ArrowUp"){
+                    uppressed = false;
+                    up.style.color = "black";
+                    up.style.backgroundColor = "rgb(135, 142, 148)"
+                } else if (event.key == "ArrowRight"){
+                    rightpressed = false;
+                    right.style.color = "black";
+                    right.style.backgroundColor = "rgb(135, 142, 148)"
+                } else if (event.key == "ArrowDown"){
+                    downpressed = false;
+                    down.style.color = "black";
+                    down.style.backgroundColor = "rgb(135, 142, 148)"
+                    document.getElementById('mokujin').src = "Mokujin/standing.jpg";
+                }
+                else if (event.key == "Spacebar" || event.key == " "){
+                    if (failed == true) {
+                      Start()
+                    }
+                }
+              });
+            }
+            // Function that waits for given amount of milliseconds
+            function sleep(ms) {
+              return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            failed = false
+            // start game
+            async function Start() {
+              audio = document.getElementById("audio")
+              attack = document.getElementById("attack")
+              document.getElementById("start").style.visibility = "hidden"
+              document.getElementById("restart").style.visibility = "hidden"
+              document.getElementById("tips").style.visibility = "hidden"
+              document.getElementById("tracker").style.visibility = "visible"
+              document.getElementById("status").innerHTML = ""
+              // reset failed value on restart
+              failed = false
+              for (let i = 0; i < 5; i++) {
+                
+                if (failed == true) {
+                  document.getElementById("restart").style.visibility = "visible"
+                  await sleep(1000);
+                  document.getElementById("status").innerHTML = "Spacebar to Try Again"
+                  break
+                }
+
+                attack.style.visibility = "visible"
+                document.getElementById("status").innerHTML = ""
+                document.getElementById("score").innerHTML = i + 1
+
+                // get random value
+                random = Math.floor(Math.random() * (4 - 1) + 1);
+
+                if (random == 1) {
+                  attack.src = "/Lili/df44.gif"
+                  audio.src = "/Lili/df44.mp3"
+                  audio.play()
+                  await sleep(320);
+                  if (isMobile) {
+                    if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
+                      // pass
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
+                      failed = true
+                    }
+                  }
+                  else {
+                    if (downpressed == false && rightpressed == false && uppressed == false) { 
+                      // pass
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
+                      failed = true
+                    }
+                  }
+                  await sleep(440);
+                  if (isMobile) {
+                    if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
+                      document.getElementById("status").innerHTML = "🆗 Success!"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
+                      failed = true
+                    }
+                  }
+                  else {
+                    if (downpressed == true) { 
+                      document.getElementById("status").innerHTML = "🆗 Success!"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
+                      failed = true
+                    }
+                  }
+                  await sleep(720);
+                  attack.style.visibility = "hidden"
+                }
+
+                else if (random == 2) {
+                  attack.src = "/Lili/df1.gif"
+                  audio.src = "/Lili/df1.mp3"
+                  audio.play()
+                  await sleep(200);
+                  if (isMobile) {
+                    if (String(joy.GetDir()).localeCompare("C") == 0 || String(joy.GetDir()).localeCompare("W") == 0) { 
+                      document.getElementById("status").innerHTML = "🆗 Success!"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
+                      failed = true
+                    }
+                  }
+                  else {
+                    if (downpressed == false && rightpressed == false && uppressed == false) { 
+                      document.getElementById("status").innerHTML = "🆗 Success!"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
+                      failed = true
+                    }
+                  }
+                  await sleep(950);
+                  attack.style.visibility = "hidden"
+                }
+
+                else if (random == 3) {
+                  attack.src = "/Lili/db4.gif"
+                  audio.src = "/Lili/db4.mp3"
+                  audio.play()
+                  await sleep(600);
+                  if (isMobile) {
+                    if (String(joy.GetDir()).localeCompare("SW") == 0 || String(joy.GetDir()).localeCompare("S") == 0 || String(joy.GetDir()).localeCompare("SE") == 0) { 
+                      document.getElementById("status").innerHTML = "🆗 Success!"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
+                      failed = true
+                    }
+                  }
+                  else {
+                    if (downpressed == true) { 
+                      document.getElementById("status").innerHTML = "🆗 Success!"
+                    }
+                    else {
+                      document.getElementById("status").innerHTML = "❌ You failed"
+                      failed = true
+                    }
+                  }
+                  await sleep(800);
+                  attack.style.visibility = "hidden"
+                }
+                else {
+                document.getElementById("status").innerHTML = "Something has gone wrong"
+                }
+              }
+              document.getElementById("restart").style.visibility = "visible"
+              if (failed == false) {
+                document.getElementById("status").innerHTML = "You win!"
+                audio.src = "/You win!.mp3"
+                audio.play()
+              }
+              else {
+                await sleep(800);
+                if (isMobile) {
+                  document.getElementById("status").innerHTML = "Spacebar to Try Again"
+                }
+              }
+            }
+        </script>
+    </body>
+</html>
